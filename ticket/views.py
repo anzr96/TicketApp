@@ -187,7 +187,7 @@ class AddSalonView(TemplateView):
             phone_number = form.cleaned_data['phone_number']
             address = form.cleaned_data['address']
             postal_code = form.cleaned_data['postal_code']
-            next = form.cleaned_data['next']
+            next_url = form.cleaned_data['next']
             english_name = form.cleaned_data['english_name']
             name = form.cleaned_data['name']
             english_name.join(('_', str(phone_number)))
@@ -205,7 +205,7 @@ class AddSalonView(TemplateView):
                                              salons=salon)
             contact.save()
 
-            response = redirect(next)
+            response = redirect(next_url)
             return response
 
 
