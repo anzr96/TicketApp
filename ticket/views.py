@@ -136,14 +136,11 @@ class AddUserView(TemplateView):
 
             user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name,
                                             phone_number=phone_number, email=email, birthday=birthday,
-                                            password=password)
+                                            password=password, salon=salon)
             user.profile_photo = '/uploads/default/girl.svg'
             group = Group.objects.get(name=role)
             user.groups.add(group)
             user.save()
-
-            salon_user = Salon.objects.get(name=salon)
-            salon_user.users.add(user)
 
             if role == "manager":
                 user_admin = User.objects.get(username=request.user.username)
