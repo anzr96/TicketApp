@@ -17,7 +17,7 @@ class User(AbstractUser):
     address = models.CharField(max_length=100, null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
 
-    salon = models.ForeignKey(Salon, on_delete=models.CASCADE)
+    salon = models.ForeignKey(Salon, on_delete=models.CASCADE, null=True, blank=True)
 
     REQUIRED_FIELDS = ['email', 'phone_number', 'first_name', 'last_name', 'password']
 
