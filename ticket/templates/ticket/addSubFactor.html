@@ -313,32 +313,16 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h1>Scan from WebCam:</h1>
+                    <h3>اسکن از دوربین</h3>
                     <div>
-                        <b>Device has camera: </b>
+                        <b>دستگاه دوربین دارد: </b>
                         <span id="cam-has-camera"></span>
                         <br>
                         <video muted playsinline id="qr-video" width="100%"></video>
                     </div>
-                    <div>
-                        <select id="inversion-mode-select">
-                            <option value="original">Scan original (dark QR code on bright background)</option>
-                            <option value="invert">Scan with inverted colors (bright QR code on dark background)
-                            </option>
-                            <option value="both">Scan both</option>
-                        </select>
-                        <br>
-                    </div>
-                    <b>Detected QR code: </b>
-                    <span id="cam-qr-result">None</span>
-                    <br>
-                    <b>Last detected at: </b>
-                    <span id="cam-qr-result-timestamp"></span>
-                    <hr>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+                    <button id="close_btn" type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
                 </div>
             </div>
         </div>
@@ -567,27 +551,45 @@
     </script>
 
     <script type="module">
-        import QrScanner from "/static/ticket/js/qr/qr-scanner.min.js";
-
-        QrScanner.WORKER_PATH = '/static/ticket/js/qr/qr-scanner-worker.min.js';
+        {% load static %}
+        import QrScanner from "{%  static 'ticket/js/qr/qr-scanner.min.js' %}";
+        QrScanner.WORKER_PATH = '{%  static 'ticket/js/qr/qr-scanner-worker.min.js' %}';
 
         const video = document.getElementById('qr-video');
         const camHasCamera = document.getElementById('cam-has-camera');
-        const camQrResult = document.getElementById('cam-qr-result');
-        const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
 
-        function setResult(label, result) {
-            label.textContent = result;
-            camQrResultTimestamp.textContent = new Date().toString();
-            label.style.color = 'teal';
-            clearTimeout(label.highlightTimeout);
-            label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
+        function setResult(result) {
+            var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+            $.ajax({
+                method: 'POST',
+                url: "/get-user-data/",
+                data: {qr: result},
+                beforeSend: function (xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+            }).done(function (data) {
+                $('body').find("input[name='first_name']").val(data.first_name);
+                $('body').find("input[name*='last_name']").val(data.last_name);
+                $('body').find("input[name*='username']").val(data.username);
+                $("#user_lock").prop("hidden", false);
+                $("#sub").prop("disabled", false);
+                $("#close_btn").submit()
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                alert("مشتری مورد نظر یافت نشد");
+                $('body').find("input[name='first_name']").val('');
+                $('body').find("input[name*='last_name']").val('');
+                $('body').find("input[name*='username']").val('');
+                $("#user_lock").prop("hidden", true);
+                $("#sub").prop("disabled", true);
+            });
         }
 
         // ####### Web Cam Scanning #######
 
         QrScanner.hasCamera().then(hasCamera => camHasCamera.textContent = hasCamera);
-        const scanner = new QrScanner(video, result => setResult(camQrResult, result));
+        const scanner = new QrScanner(video, result => setResult(result));
 
         $("#scan").on('click', function (event) {
             scanner.start();
