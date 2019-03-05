@@ -127,6 +127,8 @@ class AddUserView(TemplateView):
             password = phone_number
             salon_code = form.cleaned_data['salon']
             salon = Salon.objects.filter(code=salon_code).first()
+            if salon is None:
+                return redirect('/')
             username = phone_number + salon.code
 
             if role == "manager" and not request.user.has_perm('ticket.add_manager'):
