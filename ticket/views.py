@@ -249,14 +249,17 @@ class AddSubFactor(TemplateView):
         except:
             stylist_exist = False
 
-        if user.groups.filter(name='stylist').exists() and stylist_exist:
-            services = user.stylist.services
-        else:
-            services = Service.objects.all()
-        if not user.groups.filter(name="stylist").exists():
-            users = User.objects.filter(groups__name="stylist")
+        salon = Salon.objects.filter(user=request.user).first()
 
-        return render(request, self.template_name, {'services': services, 'stylists': users})
+        if user.groups.filter(name='stylist').exists() and stylist_exist:
+            services = Service.objects.filter(salon=salon, stylistservice__stylist__user=user)
+        else:
+            services = Service.objects.filter(salon=salon)
+        if not user.groups.filter(name="stylist").exists():
+            users = User.objects.filter(groups__name="stylist", salon=salon)
+            return render(request, self.template_name, {'services': services, 'stylists': users})
+        else:
+            return render(request, self.template_name, {'services': services})
 
     def post(self, request, *args, **kwargs):
         stylist = User.objects.filter(username=request.user.username).first()
