@@ -1,0 +1,107 @@
+{% extends 'partials/layout.html' %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block content %}
+    <div class="m-content">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!--begin::Portlet-->
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                            <span class="m-portlet__head-icon m--hide">
+                                <i class="la la-gear"></i>
+                            </span>
+                                <h3 class="m-portlet__head-text">
+                                    لیست مشتری ها
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--begin::Form-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="m-portlet__body">
+                                <table
+                                        class="dt table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline"
+                                        role="grid" aria-describedby="m_table_1_info" style="width: 100%;">
+                                    <thead>
+                                    <tr role="row">
+                                        <th class="dt-right sorting_disabled" rowspan="1" colspan="1">
+                                            <a href="#"
+                                               class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill"
+                                               title="View">
+                                                <i class="la la-edit"></i>
+                                            </a>
+                                        </th>
+                                        <th class="sorting_desc" tabindex="0" aria-controls="m_table_1" rowspan="1"
+                                            colspan="1" aria-sort="descending"
+                                            aria-label="Order ID: activate to sort column ascending">نام کاربری
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="m_table_1" rowspan="1"
+                                            colspan="1"
+                                            aria-label="Ship City: activate to sort column ascending">نام و نام خانوادگی
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="m_table_1" rowspan="1"
+                                            colspan="1"
+                                            aria-label="Ship Address: activate to sort column ascending">شماره موبایل
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="m_table_1" rowspan="1"
+                                            colspan="1"
+                                            aria-label="Company Agent: activate to sort column ascending">آخرین تاریخ
+                                            مراجعه به سالن
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="m_table_1" rowspan="1"
+                                            colspan="1"
+                                            aria-label="Company Name: activate to sort column ascending">وضعیت فاکتور ها
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for user in users %}
+                                        <tr>
+                                            <td>
+                                                <a href="/view-profile/?username={{ user.username }}"
+                                                   class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill"
+                                                   title="View">
+                                                    <i class="la la-edit"></i>
+                                                </a>
+                                            </td>
+                                            <td>{{ user.username }}</td>
+                                            <td>{{ user.first_name }} {{ user.last_name }}</td>
+                                            <td>{{ user.phone_number }}</td>
+                                            <td>{{ user.last_time }}</td>
+                                            <td>{{ user.status }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--end::Form-->
+                </div>
+
+                <!--end::Portlet-->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    {% load static %}
+<script src="{% static 'ticket/js/datatables.bundle.js' %}" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('table').each(function (index, value) {
+            $(this).DataTable()
+        })
+    });
+</script>
+{% endblock %}

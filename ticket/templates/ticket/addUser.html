@@ -1,0 +1,111 @@
+{% extends "partials/layout.html" %}
+{% block title %}
+    اضافه کردن کاربر جدید
+{% endblock %}
+{% block content %}
+    <div class="m-portlet m-portlet--last m-portlet--head-lg m-portlet--responsive-mobile" id="main_portlet">
+        <form class="m-form" method="POST" action="/add-user/">
+            {% csrf_token %}
+            <input name="next" type="text" hidden value="/show-user"/>
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-wrapper">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <h3 class="m-portlet__head-text">
+                                اضافه کردن کاربر
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="m-portlet__head-tools">
+                        <a href="#"
+                           class="back btn btn-secondary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
+                        <span>
+                            <i class="la la-arrow-left"></i>
+                            <span>بازگشت</span>
+                        </span>
+                        </a>
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-accent  m-btn m-btn--icon m-btn--wide m-btn--md">
+                            <span>
+                                <i class="la la-check"></i>
+                                <span>ذخیره</span>
+                            </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-portlet__body">
+
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-6">
+                        <label>نام</label>
+                        <input name="first_name" type="text" class="form-control m-input" placeholder="نام کوچک">
+                        <span class="m-form__help">لطفا نام کوچک خود را وارد کنید</span>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="">نام خانوادگی</label>
+                        <input name="last_name" type="text" class="form-control m-input" placeholder="نام خانوادگی">
+                        <span class="m-form__help">لطفا نام خانوادگی خود را وارد کنید</span>
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-6">
+                        <label>شماره موبایل</label>
+                        <div class="m-input-icon m-input-icon--right">
+                            <input name="phone_number" type="tel" class="form-control m-input"
+                                   placeholder="شماره موبایل" required>
+                            <span class="m-input-icon__icon m-input-icon__icon--right"><span><i
+                                    class="la la-mobile-phone"></i></span></span>
+                        </div>
+                        <span class="m-form__help">لطفا شماره موبایل خود را وارد کنید</span>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="">ایمیل</label>
+                        <div class="m-input-icon m-input-icon--right">
+                            <input name="email" type="email" class="form-control m-input" placeholder="ایمیل">
+                            <span class="m-input-icon__icon m-input-icon__icon--right"><span><i
+                                    class="la la-at"></i></span></span>
+                        </div>
+                        <span class="m-form__help">لطفا ایمیل خود را وارد کنید</span>
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-4">
+                        <label>تاریخ تولد</label>
+                        <div class="m-input-icon m-input-icon--right">
+                            <input name="birthday" type="date" class="form-control m-input" placeholder="تاریخ تولد">
+                            <span class="m-input-icon__icon m-input-icon__icon--right"><span><i
+                                    class="la la-map-marker"></i></span></span>
+                        </div>
+                        <span class="m-form__help">لطفاتاریخ تولد خود را وارد کنید</span>
+                    </div>
+                    <div class="col-lg-4">
+                        <label >نقش کاربر</label>
+                        <div class="m-input-icon m-input-icon--right" >
+                            <select class="form-control" id="m_select2_1" name="role">
+                                {% for o in roles %}
+                                    <option value="{{ o.value }}">{{ o.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <span class="m-form__help">لطفانقش کاربر را در سیستم وارد کنید</span>
+                    </div>
+                    <div class="col-lg-4">
+                        <label >انتخاب سالن </label>
+                        <div class="m-input-icon m-input-icon--right" data-select2-id="150">
+                            <select class="form-control" id="m_select2_2" name="salon">
+                                <option selected hidden disabled>لطفا انتخاب کنید</option>
+                                {% for o in salons %}
+                                    <option value="{{ o.name }}">{{ o.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <span class="m-form__help">لطفا سالن کاربر را در سیستم وارد کنید</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

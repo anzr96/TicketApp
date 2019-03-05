@@ -1,0 +1,79 @@
+{% extends "partials/layout.html" %}
+{% block title %}
+اضافه کردن سالن
+{% endblock %}
+{% block content %}
+<div class="m-portlet m-portlet--last m-portlet--head-lg m-portlet--responsive-mobile" id="main_portlet">
+    <form class="m-form" method="POST" action="/add-salon/">
+        {% csrf_token %}
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-wrapper">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                            اضافه کردن سالن
+                        </h3>
+                    </div>
+                </div>
+                <div class="m-portlet__head-tools">
+                    <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
+                        <span>
+                            <i class="la la-arrow-left"></i>
+                            <span>بازگشت</span>
+                        </span>
+                    </a>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-accent  m-btn m-btn--icon m-btn--wide m-btn--md">
+                            <span>
+                                <i class="la la-check"></i>
+                                <span>ذخیره</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__body">
+
+            <div class="form-group m-form__group row">
+                <div class="col-lg-6">
+                    <label>نام سالن</label>
+                    <input name="name" type="text" class="form-control m-input" placeholder="نام سالن">
+                    <span class="m-form__help">لطفا نام کامل سالن را وارد کنید</span>
+                </div>
+                <div class="col-lg-6">
+                    <label> نام سالن به انگلیسی</label>
+                    <input name="english_name" type="text" class="form-control m-input" placeholder="نام سالن انگلیسی">
+                    <span class="m-form__help">لطفا نام سالن را به انگلیسی وارد کنید</span>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <div class="col-lg-4">
+                    <label>آدرس:</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input name="address" type="text" class="form-control m-input" placeholder="آدرس سالن">
+                        <span class="m-input-icon__icon m-input-icon__icon--right"><span><i
+                                    class="la la-map-marker"></i></span></span>
+                    </div>
+                    <span class="m-form__help">لطفاآدرس کامل سالن را وارد کنید</span>
+                </div>
+                <div class="col-lg-4">
+                    <label class="">کد پستی:</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input name="postal_code" type="text" class="form-control m-input" placeholder="کد پستی">
+                        <span class="m-input-icon__icon m-input-icon__icon--right"><span><i
+                                    class="la la-bookmark-o"></i></span></span>
+                    </div>
+                    <span class="m-form__help">لطفا کد پستی سالن را وارد کنید</span>
+                </div>
+                <div class="col-lg-4">
+                    <label class="">شماره سالن:</label>
+                    <input name="phone_number" type="tel" class="form-control m-input" placeholder="شماره سالن">
+                    <span class="m-form__help">لطفا شماره سالن را وارد کنید</span>
+                </div>
+                <input name="next" type="text" hidden value="/" />
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends "partials/layout.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block content %}
+    <div class="m-portlet m-portlet--last m-portlet--head-lg m-portlet--responsive-mobile" id="main_portlet">
+        <form class="m-form" method="POST" action="">
+            <input name="next" type="text" hidden value="/add-service-stylist/"/>
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-wrapper">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <h3 class="m-portlet__head-text">
+                                خدمات انجام شده
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="m-portlet__head-tools">
+                        <a href="#"
+                           class="back btn btn-secondary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
+                        <span>
+                            <i class="la la-arrow-left"></i>
+                            <span>بازگشت</span>
+                        </span>
+                        </a>
+                        <div class="btn-group">
+                            <button id="sub" type="button"
+                                    class="btn btn-accent  m-btn m-btn--icon m-btn--wide m-btn--md"
+                            onclick="send_data(event)">
+                            <span>
+                                <i class="la la-check"></i>
+                                <span>ذخیره</span>
+                            </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-portlet__body">
+                <div id="user_lock">
+                    <div class="m-form__seperator m-form__seperator--dashed  m-form__seperator--space m--margin-bottom-40">
+                    </div>
+                    <div id="m_repeater_1">
+                        <div class="form-group  m-form__group row" id="m_repeater_1">
+                            <div data-repeater-list="" class="col-lg-12">
+                                <div data-repeater-item="" class="form-group m-form__group row align-items-center">
+                                    <div class="col-md-3">
+                                        <div class="m-form__group m-form__group--inline">
+                                            <div class="m-form__control">
+                                                <label>نام آرایشگر</label>
+                                                <select class="form-control m-input m-input--square select" name="stylist"
+                                                        style="width:100%">
+                                                    <option selected disabled hidden>آرایشگر</option>
+                                                    {% for stylist in stylists %}
+                                                        <option value="{{ stylist.username }}">{{ stylist.first_name }}
+                                                            {{ stylist.last_name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-none m--margin-bottom-10"></div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="m-form__group m-form__group--inline">
+                                            <div class="m-form__control">
+                                                <label>نوع خدمات</label>
+                                                <select class="form-control m-input m-input--square select" name="service"
+                                                         style="width:100%">
+                                                    <option selected disabled hidden>خدمات را انتخاب کنید</option>
+                                                    {% for service in services %}
+                                                        <option value="{{ service.code }}">{{ service.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-none m--margin-bottom-10"></div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="m-form__group m-form__group--inline">
+                                            <div class="m-form__control">
+                                                <label>درصد</label>
+                                                <input name="percent" type="number" class="form-control m-input"
+                                                       placeholder="0" required>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-none m--margin-bottom-10"></div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div data-repeater-delete=""
+                                             class="btn-sm btn btn-danger m-btn m-btn--icon m-btn--pill"
+                                             onclick="delete_row(this)">
+                                        <span>
+                                            <i class="la la-trash-o"></i>
+                                            <span>حذف</span>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-form__group form-group row">
+                            <label class="col-lg-2 col-form-label"></label>
+                            <div class="col-lg-4">
+                                <div data-repeater-create=""
+                                     class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide">
+                                <span>
+                                    <i class="la la-plus"></i>
+                                    <span>اضافه کردن خدمات دیگر </span>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
+{% block footer %}
+    {% csrf_token %}
+    <script type="text/javascript">
+    function send_data(e){
+        e.preventDefault();
+        let data = {};
+        data.service = [];
+        data.stylist = [];
+        data.percent = [];
+        $("#m_repeater_1").find("[data-repeater-item]").each(function (index, value) {
+            data.service.push($(this).find("select[name*='service']").first().val());
+            data.stylist.push($(this).find("select[name*='stylist']").first().val());
+            data.percent.push($(this).find("input[name*='percent']").first().val());
+        });
+        data.next = $("input[name='next']").val();
+
+        JSON.stringify(data);
+
+        let csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+        $.ajax({
+            method: 'POST',
+            url: "/add-service-stylist/",
+            data: JSON.stringify(data),
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        }).done(function (data) {
+            window.location.href = data
+        }).fail(function (err) {
+
+        });
+    }
+    </script>
+{% endblock %}

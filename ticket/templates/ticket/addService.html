@@ -1,0 +1,74 @@
+{% extends "partials/layout.html" %}
+{% block title %}
+اضافه کردن خدمات
+{% endblock %}
+{% block content %}
+<div class="m-portlet m-portlet--last m-portlet--head-lg m-portlet--responsive-mobile" id="main_portlet">
+    <form class="m-form" method="POST" action="/add-service/">
+        {% csrf_token %}
+        <input name="next" type="text" hidden value="/show-services/" />
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-wrapper">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                            اضافه کردن خدمات
+                        </h3>
+                    </div>
+                </div>
+                <div class="m-portlet__head-tools">
+                    <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
+                        <span>
+                            <i class="la la-arrow-left"></i>
+                            <span>بازگشت</span>
+                        </span>
+                    </a>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-accent  m-btn m-btn--icon m-btn--wide m-btn--md">
+                            <span>
+                                <i class="la la-check"></i>
+                                <span>ذخیره</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__body">
+
+            <div class="form-group m-form__group row">
+                <div class="col-lg-6">
+                    <label>کد خدمات</label>
+                    <input name="code" type="text" class="form-control m-input" placeholder="کد ">
+                    <span class="m-form__help">لطفا کد معرف خدمات مورد نظر خود را وارد کنید</span>
+                </div>
+                <div class="col-lg-6">
+                    <label class="">نام خدمات</label>
+                    <input name="name" type="text" class="form-control m-input" placeholder="نام ">
+                    <span class="m-form__help">لطفا نام خدمات مورد نظر خود را وارد کنید</span>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <div class="col-lg-6">
+                    <label>مبلغ پیشنهادی</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input name="price" type="tel" class="form-control m-input" placeholder="مبلغ پیشنهادی" required>
+                        <span class="m-input-icon__icon m-input-icon__icon--right"><span><i
+                                    class="la la-money"></i></span></span>
+                    </div>
+                    <span class="m-form__help">لطفا مبلغ پیشنهادی برای خدمات خود وارد کنید</span>
+                </div>
+                <div class="col-lg-6">
+                    <label class="">توضیحات</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <textarea name="description" class="form-control m-input" placeholder="توضیحات"></textarea>
+                        <span class="m-input-icon__icon m-input-icon__icon--right"><span><i
+                                    class="la la-pencil-square-o"></i></span></span>
+                    </div>
+                    <span class="m-form__help">لطفا توضیحات خود را وارد کنید</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
