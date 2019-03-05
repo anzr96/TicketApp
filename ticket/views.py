@@ -126,7 +126,7 @@ class AddUserView(TemplateView):
             role = form.cleaned_data['role']
             password = phone_number
             salon_code = form.cleaned_data['salon']
-            salon = Salon.objects.filter(code=salon_code).filter()
+            salon = Salon.objects.filter(code=salon_code).first()
             username = phone_number + salon.code
 
             if role == "manager" and not request.user.has_perm('ticket.add_manager'):
