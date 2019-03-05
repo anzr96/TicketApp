@@ -6,6 +6,7 @@ from django.utils import timezone
 
 # Create your models here.
 class Salon(models.Model):
+    code = models.CharField(max_length=50)
     name = models.CharField(max_length=50, null=False, blank=False)
     english_name = models.CharField(max_length=50, null=False, blank=True, unique=True)
     logo = models.ImageField(null=True, blank=True, default='/static/ticket/images/logo/logo_tag.png')

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ticket',
     'pwa',
+    'django_jalali',
 ]
 
 MIDDLEWARE = [

@@ -8,12 +8,13 @@ from django.shortcuts import redirect
 import string, random, decimal
 from django.contrib.auth.models import Group
 import qrcode
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 import hashlib
 import json
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from django.core import serializers
+import time
 
 
 # Create your views here.
@@ -36,11 +37,34 @@ class HomeView(TemplateView):
             pass
         salon = Salon.objects.get(user=request.user)
 
-        # useful_link = request.GET['useful_link']
-        # if useful_link is not None:
-        #     factors = Factor.objects.filter(customer_factors__user__salon=salon, created_date__date=date.today())
+        try:
+            useful_link = request.GET['useful_link']
+        except:
+            useful_link = None
 
-        return render(request, self.template_name)
+        if useful_link is not None:
+            if useful_link == 'today':
+                factors = Factor.objects.filter(customer_factors__user__salon=salon,
+                                                created_date__date=date.today()).order_by('created_date').all()
+            elif useful_link == 'yesterday':
+                factors = Factor.objects.filter(customer_factors__user__salon=salon,
+                                                created_date__date=(date.today() - timedelta(days=1))).order_by(
+                    'created_date').all()
+            elif useful_link == 'this_week':
+                factors = Factor.objects.filter(customer_factors__user__salon=salon, created_date__gt=(date.today()
+                                                                                                       - timedelta(
+                            days=7)), created_date__lt=date.today() + timedelta(days=1)).order_by('created_date').all()
+            elif useful_link == 'uc':
+                factors = Factor.objects.filter(customer_factors__user__salon=salon) \
+                    .exclude(status='C').order_by('created_date').all()
+            else:
+                factors = Factor.objects.filter(customer_factors__user__salon=salon).order_by('created_date').all()[
+                          :100]
+        else:
+            factors = Factor.objects.filter(customer_factors__user__salon=salon,
+                                            created_date__date=date.today()).order_by('created_date').all()
+
+        return render(request, self.template_name, {'factors': factors})
 
     def post(self, request, *args, **kwargs):
 
@@ -102,11 +126,13 @@ class AddUserView(TemplateView):
             role = form.cleaned_data['role']
             password = phone_number
             salon = form.cleaned_data['salon']
+            salon = Salon.objects.get(name=salon)
+            username = phone_number + salon.code
 
             if role == "manager" and not request.user.has_perm('ticket.add_manager'):
                 raise form.ValidationError("شما این نقش را نمی توانید انتخاب کنید")
 
-            user = User.objects.create_user(username=phone_number, first_name=first_name, last_name=last_name,
+            user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name,
                                             phone_number=phone_number, email=email, birthday=birthday,
                                             password=password)
             user.profile_photo = '/uploads/default/girl.svg'
@@ -166,7 +192,13 @@ class AddSalonView(TemplateView):
             name = form.cleaned_data['name']
             english_name.join(('_', str(phone_number)))
 
-            salon = Salon.objects.create(name=name, english_name=english_name)
+            check = False
+            number = 0
+            while not check:
+                number = random_number()
+                check = Salon.objects.filter(code=str(number)).exists()
+
+            salon = Salon.objects.create(code=str(number), name=name, english_name=english_name)
             salon.save()
 
             contact = Contact.objects.create(phone_number=phone_number, address1=address, postal_code=postal_code,
@@ -234,9 +266,7 @@ class AddSubFactor(TemplateView):
         json_parsed = json.loads(request.body)
 
         customer = User.objects.filter(username=json_parsed['username']).first()
-        print(next)
-        next = json_parsed['next']
-        print(next)
+        next_url = json_parsed['next']
 
         discount_amount = json_parsed['discount_amount']
         if not is_num(discount_amount):
@@ -253,13 +283,11 @@ class AddSubFactor(TemplateView):
         factor = Factor.objects.filter(customer_factors=customer.customer, status__in=['NP', 'UC'],
                                        created_date__date=date.today()).first()
         if factor is None:
-            pre_code = str(stylist.salon.name) + stylist.username + customer.username + str(datetime.today()) + str(
-                random_number())
-            code = hashlib.sha224(pre_code.encode()).hexdigest()
+            code = stylist.username + "-" + datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
             factor = Factor.objects.create(code=code, customer_factors=customer.customer)
             factor.save()
 
-        index = factor.sub_factors.length
+        index = factor.sub_factors.count()
         sub_factor = SubFactor.objects.create(index=index, final_amount=0, discount_percent=discount_percent,
                                               discount_amount=discount_amount, side_fees=side_fees, total=0,
                                               factors=factor)
@@ -303,7 +331,7 @@ class AddSubFactor(TemplateView):
         factor.final_amount += sub_factor.final_amount
         factor.save()
 
-        return HttpResponse(next)
+        return HttpResponse(next_url)
 
 
 class GetServiceData(View):
@@ -443,16 +471,35 @@ class ViewFactorView(TemplateView):
         except Exception:
             qr_code = None
 
-        if phone_number is not None:
-            user = User.objects.filter(phone_number=phone_number).first()
-            if not user.groups.filter(name="customer").exists():
-                return redirect('/')
-            factors = Factor.objects.filter(customer_factors=user.customer).exclude(status='C')
-        elif qr_code is not None:
-            customer = Customer.objects.filter(qrcode=qr_code).first()
-            factors = Factor.objects.filter(customer_factors=customer).exclude(status='C')
+        salon = Salon.objects.get(user=request.user)
+
+        if request.user.groups.filter(name="stylist") and not request.user.is_superuser:
+            if phone_number is not None:
+                user = User.objects.filter(phone_number=phone_number).first()
+                if not user.groups.filter(name="customer").exists():
+                    return redirect('/')
+                factors = Factor.objects.filter(customer_factors__user__salon=salon, customer_factors=user.customer
+                                                , sub_factors__stylist__user=request.user).exclude(status='C')
+            elif qr_code is not None:
+                customer = Customer.objects.filter(qrcode=qr_code).first()
+                factors = Factor.objects.filter(customer_factors__user__salon=salon, customer_factors=customer
+                                                , sub_factors__stylist__user=request.user).exclude(status='C')
+            else:
+                factors = Factor.objects.filter(customer_factors__user__salon=salon
+                                                , sub_factors__stylist__user=request.user).exclude(status="C")
         else:
-            factors = Factor.objects.exclude(status="C")
+            if phone_number is not None:
+                user = User.objects.filter(phone_number=phone_number).first()
+                if not user.groups.filter(name="customer").exists():
+                    return redirect('/')
+                factors = Factor.objects.filter(customer_factors__user__salon=salon,
+                                                customer_factors=user.customer).exclude(status='C')
+            elif qr_code is not None:
+                customer = Customer.objects.filter(qrcode=qr_code).first()
+                factors = Factor.objects.filter(customer_factors__user__salon=salon, customer_factors=customer).exclude(
+                    status='C')
+            else:
+                factors = Factor.objects.filter(customer_factors__user__salon=salon).exclude(status="C")
 
         return render(request, self.template_name, {'title': 'مشاهده فاکتور',
                                                     'factors': factors})
