@@ -24,7 +24,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'n3veo&f+en9*l8sfw&ou$&n823z8*a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['mighty-sierra-50808.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['fathomless-beach-98451.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
