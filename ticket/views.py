@@ -125,8 +125,8 @@ class AddUserView(TemplateView):
             birthday = form.cleaned_data['birthday']
             role = form.cleaned_data['role']
             password = phone_number
-            salon = form.cleaned_data['salon']
-            salon = Salon.objects.get(name=salon)
+            salon_code = form.cleaned_data['salon']
+            salon = Salon.objects.filter(code=salon_code).filter()
             username = phone_number + salon.code
 
             if role == "manager" and not request.user.has_perm('ticket.add_manager'):
@@ -187,7 +187,6 @@ class AddSalonView(TemplateView):
             phone_number = form.cleaned_data['phone_number']
             address = form.cleaned_data['address']
             postal_code = form.cleaned_data['postal_code']
-            next_url = form.cleaned_data['next']
             english_name = form.cleaned_data['english_name']
             name = form.cleaned_data['name']
             english_name.join(('_', str(phone_number)))
@@ -205,7 +204,7 @@ class AddSalonView(TemplateView):
                                              salons=salon)
             contact.save()
 
-            response = redirect(next_url)
+            response = redirect(form.cleaned_data['next'])
             return response
 
 
@@ -425,7 +424,6 @@ class UpdateFactorView(TemplateView):
                 factor.modified_date = timezone.now()
 
             factor.save()
-            print(next)
             return redirect(form.cleaned_data['next'])
 
         return redirect('/')
@@ -450,9 +448,7 @@ class UpdateSubFactorView(View):
             factor.final_amount = calculate_final_amount(factor)
             factor.save()
 
-            next = form.cleaned_data['next']
-            print(next)
-            return redirect(next)
+            return redirect(form.cleaned_data['next'])
         else:
             return redirect('/')
 
@@ -582,8 +578,7 @@ class AddServiceStylist(TemplateView):
             percent = json_parsed['percent'][i]
             service_stylist = StylistService.objects.create(stylist=stylist, service=service, percent=percent)
 
-        next = json_parsed['next']
-        return HttpResponse(next)
+        return HttpResponse(json_parsed['next'])
 
 
 class ViewCustomerView(TemplateView):
