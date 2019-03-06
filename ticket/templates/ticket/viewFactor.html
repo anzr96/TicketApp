@@ -139,6 +139,32 @@
         </div>
     </div>
 </div>
+
+    <div class="modal fade" id="m_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>اسکن از دوربین</h3>
+                    <div>
+                        <b>دستگاه دوربین دارد: </b>
+                        <span id="cam-has-camera"></span>
+                        <br>
+                        <video muted playsinline id="qr-video" width="100%"></video>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="close_btn" type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 {% block footer %}
 {% load static %}
@@ -151,4 +177,49 @@
         })
     });
 </script>
+    <script type="module">
+        {% load static %}
+        import QrScanner from "{%  static 'ticket/js/qr/qr-scanner.min.js' %}";
+        QrScanner.WORKER_PATH = '{%  static 'ticket/js/qr/qr-scanner-worker.min.js' %}';
+
+        const video = document.getElementById('qr-video');
+        const camHasCamera = document.getElementById('cam-has-camera');
+
+        function setResult(result) {
+            var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+            $.ajax({
+                method: 'POST',
+                url: "/get-user-data/",
+                data: {qr: result},
+                beforeSend: function (xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+            }).done(function (data) {
+                $('body').find("input[name='first_name']").val(data.first_name);
+                $('body').find("input[name*='last_name']").val(data.last_name);
+                $('body').find("input[name*='username']").val(data.username);
+                $("#user_lock").prop("hidden", false);
+                $("#sub").prop("disabled", false);
+                $("#close_btn").submit()
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                alert("مشتری مورد نظر یافت نشد");
+                $('body').find("input[name='first_name']").val('');
+                $('body').find("input[name*='last_name']").val('');
+                $('body').find("input[name*='username']").val('');
+                $("#user_lock").prop("hidden", true);
+                $("#sub").prop("disabled", true);
+            });
+        }
+
+        // ####### Web Cam Scanning #######
+
+        QrScanner.hasCamera().then(hasCamera => camHasCamera.textContent = hasCamera);
+        const scanner = new QrScanner(video, result => setResult(result));
+
+        $("#scan").on('click', function (event) {
+            scanner.start();
+        })
+    </script>
 {% endblock %}
