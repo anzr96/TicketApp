@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9432784e-dd66-43d8-a861-ab7a0e5eca0e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ticket/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket/templates/ticket/addSubFactor.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/ticket/addSubFactor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket/templates/ticket/viewFactor.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/ticket/viewFactor.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,19 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/addSubFactor.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5576">
-              <caret line="328" column="10" selection-start-line="304" selection-start-column="4" selection-end-line="328" selection-end-column="10" />
-              <folding>
-                <element signature="e#21541#22442#0#HTML" />
-                <element signature="e#22484#22624#0#HTML" />
-                <element signature="e#22660#23314#0#HTML" />
-                <element signature="e#23347#23590#0#HTML" />
-                <element signature="e#23621#27617#0#HTML" />
-                <element signature="e#27649#29486#0#HTML" />
-              </folding>
+            <state relative-caret-position="-436">
+              <caret line="555" column="38" selection-start-line="555" selection-start-column="38" selection-end-line="555" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -71,37 +65,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/viewFactor.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="179" column="4" selection-start-line="179" selection-start-column="4" selection-end-line="179" selection-end-column="4" />
+            <state relative-caret-position="888">
+              <caret line="224" column="8" lean-forward="true" selection-start-line="224" selection-start-column="8" selection-end-line="224" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket/templates/partials/layout.html">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="102" selection-start-line="10" selection-start-column="102" selection-end-line="10" selection-end-column="102" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2244">
+            <state relative-caret-position="2295">
               <caret line="135" column="64" selection-start-line="135" selection-start-column="64" selection-end-line="135" selection-end-column="64" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket/templates/registration/login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="100" selection-start-line="9" selection-start-column="100" selection-end-line="9" selection-end-column="100" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+              <caret line="9" column="100" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -149,9 +141,10 @@
         <option value="$PROJECT_DIR$/ticket/templates/ticket/addUser.html" />
         <option value="$PROJECT_DIR$/ticket/templates/ticket/index.html" />
         <option value="$PROJECT_DIR$/ticket/views.py" />
+        <option value="$PROJECT_DIR$/ticket/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/ticket/templates/partials/layout.html" />
         <option value="$PROJECT_DIR$/ticket/templates/ticket/addSubFactor.html" />
         <option value="$PROJECT_DIR$/ticket/templates/ticket/viewFactor.html" />
-        <option value="$PROJECT_DIR$/ticket/templates/registration/login.html" />
       </list>
     </option>
   </component>
@@ -303,7 +296,8 @@
       <option name="presentableId" value="Default" />
       <updated>1551823198764</updated>
       <workItem from="1551823201209" duration="3397000" />
-      <workItem from="1551844701738" duration="770000" />
+      <workItem from="1551844701738" duration="1199000" />
+      <workItem from="1551856745137" duration="772000" />
     </task>
     <task id="LOCAL-00001" summary="bug fixes">
       <created>1551823312050</created>
@@ -361,22 +355,35 @@
       <option name="project" value="LOCAL" />
       <updated>1551845079053</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix login image">
+      <created>1551845474608</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1551845474608</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix title and description">
+      <created>1551845502654</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1551845502654</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4167000" />
+    <option name="totallyTimeSpent" value="5368000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15833333" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16060606" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32899022" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -401,7 +408,8 @@
     <MESSAGE value="bug fixes" />
     <MESSAGE value="fix camera qr" />
     <MESSAGE value="fix login image" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix login image" />
+    <MESSAGE value="fix title and description" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix title and description" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-1870824647/builtins.py">
@@ -451,31 +459,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/addSubFactor.html">
+    <entry file="file://$PROJECT_DIR$/ticket/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5576">
-          <caret line="328" column="10" selection-start-line="304" selection-start-column="4" selection-end-line="328" selection-end-column="10" />
-          <folding>
-            <element signature="e#21541#22442#0#HTML" />
-            <element signature="e#22484#22624#0#HTML" />
-            <element signature="e#22660#23314#0#HTML" />
-            <element signature="e#23347#23590#0#HTML" />
-            <element signature="e#23621#27617#0#HTML" />
-            <element signature="e#27649#29486#0#HTML" />
-          </folding>
+        <state relative-caret-position="2295">
+          <caret line="135" column="64" selection-start-line="135" selection-start-column="64" selection-end-line="135" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticket/templates/partials/layout.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ticket/models.py">
+    <entry file="file://$PROJECT_DIR$/ticket/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2244">
-          <caret line="135" column="64" selection-start-line="135" selection-start-column="64" selection-end-line="135" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="100" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="100" />
         </state>
       </provider>
     </entry>
@@ -500,20 +494,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/viewFactor.html">
+    <entry file="file://$PROJECT_DIR$/ticket/templates/partials/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="179" column="4" selection-start-line="179" selection-start-column="4" selection-end-line="179" selection-end-column="4" />
+        <state relative-caret-position="170">
+          <caret line="10" column="102" selection-start-line="10" selection-start-column="102" selection-end-line="10" selection-end-column="102" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticket/templates/registration/login.html">
+    <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/viewFactor.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="100" selection-start-line="9" selection-start-column="100" selection-end-line="9" selection-end-column="100" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="888">
+          <caret line="224" column="8" lean-forward="true" selection-start-line="224" selection-start-column="8" selection-end-line="224" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/addSubFactor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-436">
+          <caret line="555" column="38" selection-start-line="555" selection-start-column="38" selection-end-line="555" selection-end-column="38" />
         </state>
       </provider>
     </entry>
