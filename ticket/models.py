@@ -9,7 +9,7 @@ class Salon(models.Model):
     code = models.CharField(max_length=50)
     name = models.CharField(max_length=50, null=False, blank=False)
     english_name = models.CharField(max_length=50, null=False, blank=True, unique=True)
-    logo = models.ImageField(null=True, blank=True, default='/static/ticket/images/logo/logo_tag.png')
+    logo = models.ImageField(null=True, blank=True, default='/static/ticket/images/logo/logo_sbs.png')
 
 
 class User(AbstractUser):
@@ -47,6 +47,7 @@ class Service(models.Model):
     offeredـprice = models.IntegerField(null=True, blank=True)
 
     salon = models.ForeignKey(Salon, on_delete=models.CASCADE)
+    subservice = models.ForeignKey('self', on_delete=models.CASCADE)
 
     def save(self, **kwargs):
         if not self.id:
