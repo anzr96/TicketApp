@@ -17,6 +17,6 @@ urlpatterns = [
     path("update-profile/", permission_required('ticket.change_user', raise_exception=True)(UpdateProfileView.as_view())),
     path("add-service-stylist/", permission_required('ticket.add_stylistservice', raise_exception=True)(AddServiceStylist.as_view())),
     path("view-customer/", permission_required('ticket.view_customer', raise_exception=True)(ViewCustomerView.as_view())),
-    path("view-employ/", permission_required(['ticket.view_accountant', 'ticket.view_stylist'], raise_exception=True)(ViewEmployView.as_view())),
+    path("view-employ/", login_required(permission_required(['ticket.view_accountant', 'ticket.view_stylist']                                                    , raise_exception=True)(ViewEmployView.as_view()))),
     path("", login_required(HomeView.as_view())),
 ]
