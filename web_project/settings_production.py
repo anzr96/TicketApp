@@ -153,13 +153,13 @@ PWA_APP_START_URL = '/login/'
 PWA_APP_SCOPE = '/'
 PWA_APP_ICONS = [
     {
-        'src': '/static/ticket/images/logo/logo_tag.png',
+        'src': '/static/ticket/images/logo/logo_app.png',
         'sizes': '160x160'
     }
 ]
 PWA_APP_SPLASH_SCREEN = [
     {
-        'src': '/static/ticket/images/logo/logo_tag.png',
+        'src': '/static/ticket/images/logo/sbs_splash.png',
         'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
     }
 ]
