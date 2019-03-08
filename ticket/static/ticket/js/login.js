@@ -90,6 +90,8 @@ var SnippetLogin = function() {
 
             btn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
 
+            call_preloader();
+
             form.submit();
 
             /*form.ajaxSubmit({

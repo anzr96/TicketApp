@@ -136,6 +136,10 @@
     $(document).ready(function () {
         $("#preload").prop("hidden", true);
     })
+
+    function call_preloader() {
+        $("#preload").prop('hidden', !$("#preload").prop('hidden'));
+    }
 </script>
 
 <!--end::Page Scripts -->

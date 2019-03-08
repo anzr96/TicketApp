@@ -476,19 +476,25 @@
 <!--end::Page Scripts -->
 
 <script>
+    function call_preloader() {
+        $("#preload").prop('hidden', !$("#preload").prop('hidden'));
+    }
+
     $(document).ready(function () {
         $('.select').select2();
         $('a.back').click(function () {
             parent.history.back();
             return false;
         });
-        $("#preload").prop("hidden", true);
+        call_preloader();
     });
 
     function csrfSafeMethod(method) {
         // these HTTP methods do not require CSRF protection
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
+
+
 </script>
 {% block footer %}
 {% endblock %}
