@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9432784e-dd66-43d8-a861-ab7a0e5eca0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ticket/static/ticket/js/qrcode.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_collected/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/staticfiles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket/templates/ticket/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/ticket/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ticket/static/ticket/images/logo/logo_app.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ticket/static/ticket/images/logo/sbs_splash.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_project/settings_production.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_project/settings_production.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -160,9 +156,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket/static/ticket/images/logo/logo_sbs.png">
           <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web_project/settings_production.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="161" column="59" lean-forward="true" selection-start-line="161" selection-start-column="59" selection-end-line="161" selection-end-column="59" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -195,7 +200,6 @@
         <option value="$PROJECT_DIR$/web_project/urls.py" />
         <option value="$PROJECT_DIR$/pwa/templates/offline.html" />
         <option value="$PROJECT_DIR$/pwa/templates/manifest.json" />
-        <option value="$PROJECT_DIR$/web_project/settings_production.py" />
         <option value="$PROJECT_DIR$/env/lib64/python3.6/site-packages/pwa/templates/manifest.json" />
         <option value="$PROJECT_DIR$/env/lib64/python3.6/site-packages/pwa/app_settings.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
@@ -203,6 +207,7 @@
         <option value="$PROJECT_DIR$/ticket/urls.py" />
         <option value="$PROJECT_DIR$/ticket/templates/ticket/profile.html" />
         <option value="$PROJECT_DIR$/ticket/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/web_project/settings_production.py" />
       </list>
     </option>
   </component>
@@ -322,8 +327,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/ticket/static/ticket/js" />
       <recent name="$PROJECT_DIR$/ticket/static/ticket/images/logo" />
+      <recent name="$PROJECT_DIR$/ticket/static/ticket/js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -377,7 +382,7 @@
       <workItem from="1551823201209" duration="3397000" />
       <workItem from="1551844701738" duration="1199000" />
       <workItem from="1551856745137" duration="1387000" />
-      <workItem from="1551871570309" duration="13709000" />
+      <workItem from="1551871570309" duration="14000000" />
     </task>
     <task id="LOCAL-00001" summary="bug fixes">
       <created>1551823312050</created>
@@ -498,22 +503,28 @@
       <option name="project" value="LOCAL" />
       <updated>1552025765574</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update pwa package">
+      <created>1552053040195</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1552053040195</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19692000" />
+    <option name="totallyTimeSpent" value="19983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1621212" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1621212" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32899022" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32899022" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -522,7 +533,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32899022" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.24267101" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.24267101" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -754,13 +765,6 @@
     <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo_sbs.015ccc183b4b.PNG">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/web_project/settings_production.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="155" column="53" selection-start-line="155" selection-start-column="53" selection-end-line="155" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -929,6 +933,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket/static/ticket/images/logo/logo_sbs.png">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_project/settings_production.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="161" column="59" lean-forward="true" selection-start-line="161" selection-start-column="59" selection-end-line="161" selection-end-column="59" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
