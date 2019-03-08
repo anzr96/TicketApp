@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9432784e-dd66-43d8-a861-ab7a0e5eca0e" name="Default Changelist" comment="update logo">
-      <change afterPath="$PROJECT_DIR$/ticket/static/ticket/images/logo/favicon.png" afterDir="false" />
+    <list default="true" id="9432784e-dd66-43d8-a861-ab7a0e5eca0e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket/templates/partials/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/partials/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_project/settings_production.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_project/settings_production.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,8 +150,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ticket/templates/partials/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="484" column="41" selection-start-line="484" selection-start-column="41" selection-end-line="484" selection-end-column="41" />
+            <state relative-caret-position="73">
+              <caret line="383" column="113" selection-start-line="383" selection-start-column="113" selection-end-line="383" selection-end-column="113" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -164,13 +163,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket/templates/registration/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+            <state relative-caret-position="-689">
+              <caret line="86" column="114" selection-start-line="86" selection-start-column="114" selection-end-line="86" selection-end-column="114" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#5172#5178#0#HTML" expanded="true" />
                 <element signature="e#5178#5184#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ticket/static/ticket/js/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -183,8 +193,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web_project/settings_production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="159" column="25" lean-forward="true" selection-start-line="159" selection-start-column="25" selection-end-line="159" selection-end-column="25" />
+            <state relative-caret-position="188">
+              <caret line="151" column="23" lean-forward="true" selection-start-line="151" selection-start-column="23" selection-end-line="151" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -224,9 +234,10 @@
         <option value="$PROJECT_DIR$/ticket/views.py" />
         <option value="$PROJECT_DIR$/ticket/urls.py" />
         <option value="$PROJECT_DIR$/ticket/templates/ticket/profile.html" />
-        <option value="$PROJECT_DIR$/web_project/settings_production.py" />
         <option value="$PROJECT_DIR$/ticket/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/ticket/static/ticket/js/login.js" />
         <option value="$PROJECT_DIR$/ticket/templates/partials/layout.html" />
+        <option value="$PROJECT_DIR$/web_project/settings_production.py" />
       </list>
     </option>
   </component>
@@ -257,6 +268,27 @@
               <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
               <item name="ticket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
+              <item name="ticket" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
+              <item name="ticket" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="ticket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
+              <item name="ticket" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="ticket" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
@@ -366,7 +398,7 @@
       <workItem from="1551823201209" duration="3397000" />
       <workItem from="1551844701738" duration="1199000" />
       <workItem from="1551856745137" duration="1387000" />
-      <workItem from="1551871570309" duration="17132000" />
+      <workItem from="1551871570309" duration="18117000" />
     </task>
     <task id="LOCAL-00001" summary="bug fixes">
       <created>1551823312050</created>
@@ -515,11 +547,32 @@
       <option name="project" value="LOCAL" />
       <updated>1552054420734</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="update logo">
+      <created>1552056589852</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1552056589852</updated>
+    </task>
+    <task id="LOCAL-00023" summary="preloader">
+      <created>1552056738980</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1552056738980</updated>
+    </task>
+    <task id="LOCAL-00024" summary="preloader">
+      <created>1552057142052</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1552057142052</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23115000" />
+    <option name="totallyTimeSpent" value="24100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
@@ -539,7 +592,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32899022" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.24267101" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.24267101" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -585,7 +638,8 @@
     <MESSAGE value="add pwa app" />
     <MESSAGE value="update pwa package" />
     <MESSAGE value="update logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="update logo" />
+    <MESSAGE value="preloader" />
+    <option name="LAST_COMMIT_MESSAGE" value="preloader" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/viewFactor.html">
@@ -634,13 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="49" column="90" selection-start-line="49" selection-start-column="90" selection-end-line="49" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ticket/static/ticket/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2168">
-          <caret line="70" column="33" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -927,18 +974,13 @@
     <entry file="file://$PROJECT_DIR$/ticket/static/ticket/images/logo/logo_sbs.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/web_project/settings_production.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="159" column="25" lean-forward="true" selection-start-line="159" selection-start-column="25" selection-end-line="159" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ticket/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        <state relative-caret-position="-689">
+          <caret line="86" column="114" selection-start-line="86" selection-start-column="114" selection-end-line="86" selection-end-column="114" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#5172#5178#0#HTML" expanded="true" />
             <element signature="e#5178#5184#0#HTML" expanded="true" />
@@ -946,10 +988,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ticket/static/ticket/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_project/settings_production.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="151" column="23" lean-forward="true" selection-start-line="151" selection-start-column="23" selection-end-line="151" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ticket/templates/partials/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="484" column="41" selection-start-line="484" selection-start-column="41" selection-end-line="484" selection-end-column="41" />
+        <state relative-caret-position="73">
+          <caret line="383" column="113" selection-start-line="383" selection-start-column="113" selection-end-line="383" selection-end-column="113" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />

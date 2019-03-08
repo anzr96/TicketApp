@@ -64,7 +64,7 @@
                 <div class="m-stack__item m-brand  m-brand--skin-dark ">
                     <div class="m-stack m-stack--ver m-stack--general">
                         <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                            <a href="/" class="m-brand__logo-wrapper">
+                            <a href="/" class="m-brand__logo-wrapper" onclick="call_preloader()">
                                 <img alt="لوگو" src="{{ request.user.salon.logo }}" width="64px"/>
                             </a>
                         </div>
@@ -133,7 +133,7 @@
                                                     <div class="m-card-user__details">
                                                         <span class="m-card-user__name m--font-weight-500">{{ request.user.first_name }} {{ request.user.last_name }}</span>
                                                         <a href=""
-                                                           class="m-card-user__email m--font-weight-300 m-link">{{ request.user.email }}</a>
+                                                           class="m-card-user__email m--font-weight-300 m-link">{{ request.user.phone_number }}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,7 +144,7 @@
                                                             <span class="m-nav__section-text">بخش</span>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a href="/view-profile/" class="m-nav__link">
+                                                            <a href="/view-profile/" class="m-nav__link" onclick="call_preloader()">
                                                                 <i class="m-nav__link-icon flaticon-profile-1"></i>
                                                                 <span class="m-nav__link-title">
 																		<span class="m-nav__link-wrap">
@@ -159,7 +159,7 @@
                                                         </li>
                                                         <li class="m-nav__item">
                                                             <a href="/logout"
-                                                               class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">خروج</a>
+                                                               class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder" onclick="call_preloader()">خروج</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -193,7 +193,7 @@
                 <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
                     <li class="m-menu__item  m-menu__item--active" aria-haspopup="true">
                         <a href="/"
-                           class="m-menu__link ">
+                           class="m-menu__link " onclick="call_preloader()">
                             <i class="m-menu__link-icon flaticon-line-graph"></i>
                             <span class="m-menu__link-title">
                                     <span class="m-menu__link-wrap">
@@ -226,11 +226,11 @@
                                             class="m-menu__link"><span class="m-menu__link-text">سالن</span></span>
                                     </li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/add-salon/"
-                                                                                      class="m-menu__link "><i
+                                                                                      class="m-menu__link " onclick="call_preloader()"><i
                                             class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span
                                             class="m-menu__link-text">اضافه کردن سالن</span></a></li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/view-salon/"
-                                                                                      class="m-menu__link "><i
+                                                                                      class="m-menu__link " onclick="call_preloader()"><i
                                             class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span
                                             class="m-menu__link-text">لیست سالن ها</span></a></li>
                                 </ul>
@@ -258,15 +258,15 @@
                                             class="m-menu__link-text">کاربر و پرسنل</span></span>
                                     </li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/add-user/"
-                                                                                      class="m-menu__link "><i
+                                                                                      class="m-menu__link " onclick="call_preloader()"><i
                                             class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span
                                             class="m-menu__link-text">اضافه کردن کاربر و پرسنل</span></a></li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/view-customer/"
-                                                                                      class="m-menu__link "><i
+                                                                                      class="m-menu__link " onclick="call_preloader()"><i
                                             class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span
                                             class="m-menu__link-text">لیست مشتری ها</span></a></li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/view-employ/"
-                                                                                      class="m-menu__link "><i
+                                                                                      class="m-menu__link " onclick="call_preloader()"><i
                                             class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span
                                             class="m-menu__link-text">لیست پرسنل</span></a></li>
                                 </ul>
@@ -285,15 +285,15 @@
                                             class="m-menu__link"><span class="m-menu__link-text">خدمات</span></span>
                                     </li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/add-service/"
-                                                                                      class="m-menu__link "><i
+                                                                                      class="m-menu__link " onclick="call_preloader()"><i
                                             class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span
                                             class="m-menu__link-text">اضافه کردن خدمات سالن</span></a></li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/add-service-stylist/"
-                                                                                      class="m-menu__link "><i
+                                                                                      class="m-menu__link " onclick="call_preloader()"><i
                                             class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span
                                             class="m-menu__link-text">تعریف خدمات آرایشگر</span></a></li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/view-service/"
-                                                                                      class="m-menu__link "><i
+                                                                                      class="m-menu__link " onclick="call_preloader()"><i
                                             class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span
                                             class="m-menu__link-text">لیست خدمات سالن</span></a></li>
                                 </ul>
@@ -319,11 +319,11 @@
                                             class="m-menu__link"><span class="m-menu__link-text">فاکتور</span></span>
                                     </li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/add-sub-factor/"
-                                                                                      class="m-menu__link "><i
+                                                                                      class="m-menu__link " onclick="call_preloader()"><i
                                             class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span
                                             class="m-menu__link-text">فاکتور جدید</span></a></li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/view-factor/"
-                                                                                      class="m-menu__link "><i
+                                                                                      class="m-menu__link " onclick="call_preloader()"><i
                                             class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span
                                             class="m-menu__link-text">لیست فاکتور</span></a></li>
                                 </ul>
@@ -349,7 +349,7 @@
                                             class="m-menu__link"><span class="m-menu__link-text">فاکتور</span></span>
                                     </li>
                                     <li class="m-menu__item " aria-haspopup="true"><a href="/view-factor/"
-                                                                                      class="m-menu__link "><i
+                                                                                      class="m-menu__link " onclick="call_preloader()"><i
                                             class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span
                                             class="m-menu__link-text">لیست فاکتورها</span></a></li>
                                 </ul>
@@ -374,14 +374,14 @@
                         <h3 class="m-subheader__title m-subheader__title--separator">{{ title }}</h3>
                         <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                             <li class="m-nav__item m-nav__item--home">
-                                <a href="/" class="m-nav__link m-nav__link--icon">
+                                <a href="/" class="m-nav__link m-nav__link--icon" onclick="call_preloader()">
                                     <i class="m-nav__link-icon la la-home"></i>
                                 </a>
                             </li>
                             {% for breadcrumb in breadcrumbs %}
                                 <li class="m-nav__separator">-</li>
                                 <li class="m-nav__item">
-                                    <a href="{{ breadcrumb.href }}" class="m-nav__link">
+                                    <a href="{{ breadcrumb.href }}" class="m-nav__link" onclick="call_preloader()">
                                         <span class="m-nav__link-text">{{ breadcrumb.title }}</span>
                                     </a>
                                 </li>
