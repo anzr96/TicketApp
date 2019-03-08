@@ -572,6 +572,7 @@ class AddServiceStylist(TemplateView):
 
     def post(self, request, *args, **kwargs):
         json_parsed = json.loads(request.body)
+        print(json_parsed)
 
         i = 0
         for s in json_parsed['stylist']:
@@ -579,6 +580,7 @@ class AddServiceStylist(TemplateView):
             service = Service.objects.get(code=json_parsed['service'][i])
             percent = json_parsed['percent'][i]
             service_stylist = StylistService.objects.create(stylist=stylist, service=service, percent=percent)
+            i += 1
 
         return HttpResponse(json_parsed['next'])
 

@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
-    path('', include('pwa.urls')),
     path("add-user/", permission_required('ticket.add_user', raise_exception=True)(AddUserView.as_view())),
     path("add-salon/", permission_required('ticket.add_salon', raise_exception=True)(AddSalonView.as_view())),
     path("add-service/", permission_required('ticket.add_service', raise_exception=True)(AddSeviceView.as_view())),
@@ -20,5 +19,4 @@ urlpatterns = [
     path("view-customer/", permission_required('ticket.view_customer', raise_exception=True)(ViewCustomerView.as_view())),
     path("view-employ/", permission_required(['ticket.view_accountant', 'ticket.view_stylist'], raise_exception=True)(ViewEmployView.as_view())),
     path("", login_required(HomeView.as_view())),
-
 ]

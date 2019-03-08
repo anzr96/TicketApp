@@ -47,7 +47,7 @@ class Service(models.Model):
     offeredـprice = models.IntegerField(null=True, blank=True)
 
     salon = models.ForeignKey(Salon, on_delete=models.CASCADE)
-    subservice = models.ForeignKey('self', on_delete=models.CASCADE)
+    subservice = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
     def save(self, **kwargs):
         if not self.id:

@@ -150,6 +150,7 @@ PWA_APP_BACKGROUND_COLOR = '#282a3c'
 PWA_APP_DISPLAY = 'standalone'
 PWA_APP_ORIENTATION = 'any'
 PWA_APP_START_URL = '/login/'
+PWA_APP_SCOPE = '/'
 PWA_APP_ICONS = [
     {
         'src': '/static/ticket/images/logo/logo_tag.png',
