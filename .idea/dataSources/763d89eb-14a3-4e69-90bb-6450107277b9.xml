@@ -1,0 +1,1464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Django default">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.14">
+    <root id="1">
+      <ServerVersion>3.25.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="auth_group"/>
+    <table id="7" parent="2" name="auth_group_permissions"/>
+    <table id="8" parent="2" name="auth_permission"/>
+    <table id="9" parent="2" name="django_admin_log"/>
+    <table id="10" parent="2" name="django_content_type"/>
+    <table id="11" parent="2" name="django_migrations"/>
+    <table id="12" parent="2" name="django_session"/>
+    <table id="13" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <table id="14" parent="2" name="sqlite_sequence">
+      <System>1</System>
+    </table>
+    <table id="15" parent="2" name="ticket_accountant"/>
+    <table id="16" parent="2" name="ticket_bankinfo"/>
+    <table id="17" parent="2" name="ticket_contact"/>
+    <table id="18" parent="2" name="ticket_customer"/>
+    <table id="19" parent="2" name="ticket_factor"/>
+    <table id="20" parent="2" name="ticket_manager"/>
+    <table id="21" parent="2" name="ticket_portfolio"/>
+    <table id="22" parent="2" name="ticket_qrcode"/>
+    <table id="23" parent="2" name="ticket_salon"/>
+    <table id="24" parent="2" name="ticket_salon_users"/>
+    <table id="25" parent="2" name="ticket_service"/>
+    <table id="26" parent="2" name="ticket_stylist"/>
+    <table id="27" parent="2" name="ticket_stylist_sub_factors"/>
+    <table id="28" parent="2" name="ticket_stylistservice"/>
+    <table id="29" parent="2" name="ticket_subfactor"/>
+    <table id="30" parent="2" name="ticket_subservice"/>
+    <table id="31" parent="2" name="ticket_tag"/>
+    <table id="32" parent="2" name="ticket_user"/>
+    <table id="33" parent="2" name="ticket_user_groups"/>
+    <table id="34" parent="2" name="ticket_user_user_permissions"/>
+    <column id="35" parent="6" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="6" name="name">
+      <Position>2</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="37" parent="6" name="sqlite_autoindex_auth_group_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="38" parent="6">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="39" parent="6">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_auth_group_1</UnderlyingIndexName>
+    </key>
+    <column id="40" parent="7" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="7" name="group_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="7" name="permission_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="43" parent="7" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
+      <ColNames>group_id
+permission_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="44" parent="7" name="auth_group_permissions_group_id_b120cbf9">
+      <ColNames>group_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="45" parent="7" name="auth_group_permissions_permission_id_84c5c92e">
+      <ColNames>permission_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="46" parent="7">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="47" parent="7">
+      <ColNames>group_id</ColNames>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="48" parent="7">
+      <ColNames>permission_id</ColNames>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="49" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="8" name="content_type_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="8" name="codename">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="8" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="53" parent="8" name="auth_permission_content_type_id_codename_01ab375a_uniq">
+      <ColNames>content_type_id
+codename</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="54" parent="8" name="auth_permission_content_type_id_2f476e4b">
+      <ColNames>content_type_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="55" parent="8">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="56" parent="8">
+      <ColNames>content_type_id</ColNames>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="57" parent="9" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="9" name="action_time">
+      <Position>2</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="9" name="object_id">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="60" parent="9" name="object_repr">
+      <Position>4</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="9" name="change_message">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="9" name="content_type_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="63" parent="9" name="user_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="9" name="action_flag">
+      <Position>8</Position>
+      <DataType>smallint unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="65" parent="9" name="django_admin_log_content_type_id_c4bce8eb">
+      <ColNames>content_type_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="66" parent="9" name="django_admin_log_user_id_c564eba6">
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="67" parent="9">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="68" parent="9">
+      <ColNames>content_type_id</ColNames>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="69" parent="9">
+      <ColNames>user_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="70" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="71" parent="10" name="app_label">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="10" name="model">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="73" parent="10" name="django_content_type_app_label_model_76bd3d3b_uniq">
+      <ColNames>app_label
+model</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="74" parent="10">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="75" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="76" parent="11" name="app">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="11" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="11" name="applied">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="79" parent="11">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="80" parent="12" name="session_key">
+      <Position>1</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="12" name="session_data">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="12" name="expire_date">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="83" parent="12" name="sqlite_autoindex_django_session_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>session_key</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="84" parent="12" name="django_session_expire_date_a5c62663">
+      <ColNames>expire_date</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="85" parent="12">
+      <ColNames>session_key</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_django_session_1</UnderlyingIndexName>
+    </key>
+    <column id="86" parent="13" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="87" parent="13" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="88" parent="13" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="89" parent="13" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="90" parent="13" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="91" parent="14" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="92" parent="14" name="seq">
+      <Position>2</Position>
+    </column>
+    <column id="93" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="94" parent="15" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="15" name="manager_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="96" parent="15" name="sqlite_autoindex_ticket_accountant_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="97" parent="15" name="ticket_accountant_manager_id_4c3bf9f1">
+      <ColNames>manager_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="98" parent="15">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="99" parent="15">
+      <ColNames>user_id</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_ticket_accountant_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="100" parent="15">
+      <ColNames>user_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="101" parent="15">
+      <ColNames>manager_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="102" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="103" parent="16" name="card_number">
+      <Position>2</Position>
+      <DataType>varchar(16)|0s</DataType>
+    </column>
+    <column id="104" parent="16" name="account_number">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <column id="105" parent="16" name="shaba_number">
+      <Position>4</Position>
+      <DataType>varchar(50)|0s</DataType>
+    </column>
+    <column id="106" parent="16" name="user_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="107" parent="16" name="sqlite_autoindex_ticket_bankinfo_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="108" parent="16">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="109" parent="16">
+      <ColNames>user_id</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_ticket_bankinfo_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="110" parent="16">
+      <ColNames>user_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="111" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="112" parent="17" name="phone_number">
+      <Position>2</Position>
+      <DataType>varchar(12)|0s</DataType>
+    </column>
+    <column id="113" parent="17" name="address1">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="114" parent="17" name="address2">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="115" parent="17" name="postal_code">
+      <Position>5</Position>
+      <DataType>varchar(10)|0s</DataType>
+    </column>
+    <column id="116" parent="17" name="city">
+      <Position>6</Position>
+      <DataType>varchar(50)|0s</DataType>
+    </column>
+    <column id="117" parent="17" name="state">
+      <Position>7</Position>
+      <DataType>varchar(50)|0s</DataType>
+    </column>
+    <column id="118" parent="17" name="country">
+      <Position>8</Position>
+      <DataType>varchar(50)|0s</DataType>
+    </column>
+    <column id="119" parent="17" name="bio">
+      <Position>9</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="120" parent="17" name="user_id">
+      <Position>10</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="121" parent="17" name="salons_id">
+      <Position>11</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <index id="122" parent="17" name="sqlite_autoindex_ticket_contact_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="123" parent="17" name="ticket_contact_salons_id_bac99d3a">
+      <ColNames>salons_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="124" parent="17">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="125" parent="17">
+      <ColNames>user_id</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_ticket_contact_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="126" parent="17">
+      <ColNames>user_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="127" parent="17">
+      <ColNames>salons_id</ColNames>
+      <RefTableName>ticket_salon</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="128" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="129" parent="18" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="130" parent="18" name="manager_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="131" parent="18" name="sqlite_autoindex_ticket_customer_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="132" parent="18" name="ticket_customer_manager_id_80a8f8d0">
+      <ColNames>manager_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="133" parent="18">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="134" parent="18">
+      <ColNames>user_id</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_ticket_customer_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="135" parent="18">
+      <ColNames>user_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="136" parent="18">
+      <ColNames>manager_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="137" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="138" parent="19" name="code">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="139" parent="19" name="created_date">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="140" parent="19" name="modified_date">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="141" parent="19" name="total_amount">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="142" parent="19" name="discount_percent">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="143" parent="19" name="discount_amount">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="144" parent="19" name="final_amount">
+      <Position>8</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="145" parent="19" name="paid_amount">
+      <Position>9</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="146" parent="19" name="payment_method">
+      <Position>10</Position>
+      <DataType>varchar(4)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="147" parent="19" name="description">
+      <Position>11</Position>
+      <DataType>varchar(300)|0s</DataType>
+    </column>
+    <column id="148" parent="19" name="accountants_id">
+      <Position>12</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="149" parent="19" name="customer_factors_id">
+      <Position>13</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="150" parent="19" name="status">
+      <Position>14</Position>
+      <DataType>varchar(2)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="151" parent="19" name="ticket_factor_accountants_id_98d770dd">
+      <ColNames>accountants_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="152" parent="19" name="ticket_factor_customer_factors_id_930aa088">
+      <ColNames>customer_factors_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="153" parent="19">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="154" parent="19">
+      <ColNames>accountants_id</ColNames>
+      <RefTableName>ticket_accountant</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="155" parent="19">
+      <ColNames>customer_factors_id</ColNames>
+      <RefTableName>ticket_customer</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="156" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="157" parent="20" name="admin_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="158" parent="20" name="user_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="159" parent="20" name="sqlite_autoindex_ticket_manager_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="160" parent="20" name="ticket_manager_admin_id_48265647">
+      <ColNames>admin_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="161" parent="20">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="162" parent="20">
+      <ColNames>user_id</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_ticket_manager_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="163" parent="20">
+      <ColNames>admin_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="164" parent="20">
+      <ColNames>user_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="165" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="166" parent="21" name="image">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="167" parent="21" name="name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0s</DataType>
+    </column>
+    <column id="168" parent="21" name="sub_service_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="169" parent="21" name="tag_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="170" parent="21" name="ticket_portfolio_sub_service_id_bee42698">
+      <ColNames>sub_service_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="171" parent="21" name="ticket_portfolio_tag_id_adbf7579">
+      <ColNames>tag_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="172" parent="21">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="173" parent="21">
+      <ColNames>sub_service_id</ColNames>
+      <RefTableName>ticket_subservice</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="174" parent="21">
+      <ColNames>tag_id</ColNames>
+      <RefTableName>ticket_tag</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="175" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="176" parent="22" name="code">
+      <Position>2</Position>
+      <DataType>varchar(256)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="177" parent="22" name="modified_date">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="178" parent="22" name="admin_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="179" parent="22" name="customer_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="180" parent="22" name="created_date">
+      <Position>6</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="181" parent="22" name="sqlite_autoindex_ticket_qrcode_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customer_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="182" parent="22" name="ticket_qrcode_admin_id_877a9db0">
+      <ColNames>admin_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="183" parent="22">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="184" parent="22">
+      <ColNames>customer_id</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_ticket_qrcode_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="185" parent="22">
+      <ColNames>admin_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="186" parent="22">
+      <ColNames>customer_id</ColNames>
+      <RefTableName>ticket_customer</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="187" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="188" parent="23" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="189" parent="23" name="english_name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="190" parent="23" name="logo">
+      <Position>4</Position>
+      <DataType>varchar(100)|0s</DataType>
+    </column>
+    <column id="191" parent="23" name="code">
+      <Position>5</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="192" parent="23" name="sqlite_autoindex_ticket_salon_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>english_name</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="193" parent="23">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="194" parent="23">
+      <ColNames>english_name</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_ticket_salon_1</UnderlyingIndexName>
+    </key>
+    <column id="195" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="196" parent="24" name="salon_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="197" parent="24" name="user_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="198" parent="24" name="ticket_salon_users_salon_id_user_id_a0d21f23_uniq">
+      <ColNames>salon_id
+user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="199" parent="24" name="ticket_salon_users_salon_id_00752108">
+      <ColNames>salon_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="200" parent="24" name="ticket_salon_users_user_id_837e931f">
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="201" parent="24">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="202" parent="24">
+      <ColNames>salon_id</ColNames>
+      <RefTableName>ticket_salon</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="203" parent="24">
+      <ColNames>user_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="204" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="205" parent="25" name="code">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="206" parent="25" name="name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="207" parent="25" name="modified_date">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="208" parent="25" name="description">
+      <Position>5</Position>
+      <DataType>varchar(300)|0s</DataType>
+    </column>
+    <column id="209" parent="25" name="offeredـprice">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="210" parent="25" name="salon_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="211" parent="25" name="created_date">
+      <Position>8</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="212" parent="25" name="ticket_service_salon_id_3fcd44df">
+      <ColNames>salon_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="213" parent="25">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="214" parent="25">
+      <ColNames>salon_id</ColNames>
+      <RefTableName>ticket_salon</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="215" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="216" parent="26" name="role">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="217" parent="26" name="manager_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="218" parent="26" name="user_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="219" parent="26" name="sqlite_autoindex_ticket_stylist_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="220" parent="26" name="ticket_stylist_manager_id_63c34813">
+      <ColNames>manager_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="221" parent="26">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="222" parent="26">
+      <ColNames>user_id</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_ticket_stylist_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="223" parent="26">
+      <ColNames>manager_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="224" parent="26">
+      <ColNames>user_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="225" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="226" parent="27" name="stylist_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="227" parent="27" name="subfactor_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="228" parent="27" name="ticket_stylist_sub_factors_stylist_id_subfactor_id_b9c6330e_uniq">
+      <ColNames>stylist_id
+subfactor_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="229" parent="27" name="ticket_stylist_sub_factors_stylist_id_4b9d9c5c">
+      <ColNames>stylist_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="230" parent="27" name="ticket_stylist_sub_factors_subfactor_id_1e40f11a">
+      <ColNames>subfactor_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="231" parent="27">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="232" parent="27">
+      <ColNames>stylist_id</ColNames>
+      <RefTableName>ticket_stylist</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="233" parent="27">
+      <ColNames>subfactor_id</ColNames>
+      <RefTableName>ticket_subfactor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="234" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="235" parent="28" name="percent">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="236" parent="28" name="service_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="237" parent="28" name="stylist_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="238" parent="28" name="ticket_stylistservice_service_id_b4c80516">
+      <ColNames>service_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="239" parent="28" name="ticket_stylistservice_stylist_id_9079f11d">
+      <ColNames>stylist_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="240" parent="28">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="241" parent="28">
+      <ColNames>service_id</ColNames>
+      <RefTableName>ticket_service</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="242" parent="28">
+      <ColNames>stylist_id</ColNames>
+      <RefTableName>ticket_stylist</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="243" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="244" parent="29" name="modified_date">
+      <Position>2</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="245" parent="29" name="final_amount">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="246" parent="29" name="discount_percent">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="247" parent="29" name="discount_amount">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="248" parent="29" name="side_fees">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="249" parent="29" name="total">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="250" parent="29" name="factors_id">
+      <Position>8</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="251" parent="29" name="index">
+      <Position>9</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="252" parent="29" name="created_date">
+      <Position>10</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="253" parent="29" name="ticket_subfactor_factors_id_89bc4cc6">
+      <ColNames>factors_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="254" parent="29">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="255" parent="29">
+      <ColNames>factors_id</ColNames>
+      <RefTableName>ticket_factor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="256" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="257" parent="30" name="number">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="258" parent="30" name="price">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="259" parent="30" name="discount">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="260" parent="30" name="service_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="261" parent="30" name="subFactor_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="262" parent="30" name="description">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <index id="263" parent="30" name="ticket_subservice_service_id_fe8e421f">
+      <ColNames>service_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="264" parent="30" name="ticket_subservice_subFactor_id_d32070ff">
+      <ColNames>subFactor_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="265" parent="30">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="266" parent="30">
+      <ColNames>service_id</ColNames>
+      <RefTableName>ticket_service</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="267" parent="30">
+      <ColNames>subFactor_id</ColNames>
+      <RefTableName>ticket_subfactor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="268" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="269" parent="31" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="270" parent="31" name="salon_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="271" parent="31" name="ticket_tag_salon_id_a3513be5">
+      <ColNames>salon_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="272" parent="31">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="273" parent="31">
+      <ColNames>salon_id</ColNames>
+      <RefTableName>ticket_salon</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="274" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="275" parent="32" name="password">
+      <Position>2</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="276" parent="32" name="last_login">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <column id="277" parent="32" name="is_superuser">
+      <Position>4</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="278" parent="32" name="username">
+      <Position>5</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="279" parent="32" name="first_name">
+      <Position>6</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="280" parent="32" name="last_name">
+      <Position>7</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="281" parent="32" name="email">
+      <Position>8</Position>
+      <DataType>varchar(254)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="282" parent="32" name="is_staff">
+      <Position>9</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="283" parent="32" name="is_active">
+      <Position>10</Position>
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="284" parent="32" name="date_joined">
+      <Position>11</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="285" parent="32" name="profile_photo">
+      <Position>12</Position>
+      <DataType>varchar(100)|0s</DataType>
+    </column>
+    <column id="286" parent="32" name="phone_number">
+      <Position>13</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="287" parent="32" name="address">
+      <Position>14</Position>
+      <DataType>varchar(100)|0s</DataType>
+    </column>
+    <column id="288" parent="32" name="birthday">
+      <Position>15</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <column id="289" parent="32" name="salon_id">
+      <Position>16</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <index id="290" parent="32" name="sqlite_autoindex_ticket_user_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="291" parent="32" name="sqlite_autoindex_ticket_user_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>phone_number</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="292" parent="32" name="ticket_user_salon_id_ef6ed0e1">
+      <ColNames>salon_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="293" parent="32">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="294" parent="32">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_ticket_user_1</UnderlyingIndexName>
+    </key>
+    <key id="295" parent="32">
+      <ColNames>phone_number</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_ticket_user_2</UnderlyingIndexName>
+    </key>
+    <foreign-key id="296" parent="32">
+      <ColNames>salon_id</ColNames>
+      <RefTableName>ticket_salon</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="297" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="298" parent="33" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="299" parent="33" name="group_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="300" parent="33" name="ticket_user_groups_user_id_group_id_331fde59_uniq">
+      <ColNames>user_id
+group_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="301" parent="33" name="ticket_user_groups_user_id_7ef0bb5e">
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="302" parent="33" name="ticket_user_groups_group_id_694d8e39">
+      <ColNames>group_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="303" parent="33">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="304" parent="33">
+      <ColNames>user_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="305" parent="33">
+      <ColNames>group_id</ColNames>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="306" parent="34" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="307" parent="34" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="308" parent="34" name="permission_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="309" parent="34" name="ticket_user_user_permissions_user_id_permission_id_b1b65c07_uniq">
+      <ColNames>user_id
+permission_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="310" parent="34" name="ticket_user_user_permissions_user_id_1ecd59a8">
+      <ColNames>user_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="311" parent="34" name="ticket_user_user_permissions_permission_id_bc26f856">
+      <ColNames>permission_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="312" parent="34">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="313" parent="34">
+      <ColNames>user_id</ColNames>
+      <RefTableName>ticket_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="314" parent="34">
+      <ColNames>permission_id</ColNames>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+  </database-model>
+</dataSource>
