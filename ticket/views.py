@@ -507,14 +507,25 @@ class ViewProfileView(TemplateView):
     template_name = 'ticket/profile.html'
 
     def get(self, request, *args, **kwargs):
+        username = request.GET.get('username')
+
+        if username is None:
+            user = request.user
+            title = 'پروفایل من'
+        else:
+            user = User.objects.get(username=username)
+            title = 'پروفایل ' + user.first_name + " " + user.last_name
+            if user is None:
+                return redirect('/')
+
         try:
             (request.user.customer is not None)
-            qr_code = create_qr_img(request.user.customer.qrcode.code)
+            qr_code = request.user.customer.qrcode.code
         except:
             qr_code = None
 
-        return render(request, self.template_name, {'title': 'پروفایل من',
-                                                    'qr_code': qr_code})
+        return render(request, self.template_name, {'title': title,
+                                                    'qr_code': qr_code, 'user': user})
 
 
 class UpdateProfileView(TemplateView):

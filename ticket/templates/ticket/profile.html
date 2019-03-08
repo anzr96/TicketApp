@@ -73,47 +73,41 @@
                               action="/update-profile/"
                               method="post">
                             <div class="m-portlet__body">
-                                <div class="form-group m-form__group m--margin-top-10 m--hide">
-                                    <div class="alert m-alert m-alert--default" role="alert">
-                                        The example form below demonstrates common HTML form elements that receive
-                                        updated styles from Bootstrap with additional classes.
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group m-form__group row">
                                             <div class="col-10 ml-auto">
-                                                <h3 class="m-form__section"> اطلاعات شخصی</h3>
+                                                <h3 class="m-form__section">اطلاعات شخصی</h3>
                                             </div>
                                         </div>
                                         <div class="form-group m-form__group row">
-                                            <label for="example-text-input" class="col-3 col-form-label">نام</label>
-                                            <div class="col-7">
+                                            <label for="example-text-input" class="col-md-3 col-sm-12 col-form-label">نام</label>
+                                            <div class="col-md-7 col-sm-12">
                                                 <input name="first_name" class="form-control m-input" type="text"
-                                                       value="{{ request.user.first_name }}">
+                                                       value="{{ user.first_name }}">
                                             </div>
                                         </div>
                                         <div class="form-group m-form__group row">
-                                            <label for="example-text-input" class="col-3 col-form-label">نام
+                                            <label for="example-text-input" class="col-md-3 col-sm-12 col-form-label">نام
                                                 خانوادگی</label>
-                                            <div class="col-7">
+                                            <div class="col-md-7 col-sm-12">
                                                 <input name="last_name" class="form-control m-input" type="text"
-                                                       value="{{ request.user.last_name }}">
+                                                       value="{{ user.last_name }}">
                                             </div>
                                         </div>
                                         <div class="form-group m-form__group row">
-                                            <label for="example-text-input" class="col-3 col-form-label">ایمیل</label>
-                                            <div class="col-7">
+                                            <label for="example-text-input" class="col-md-3 col-sm-12 col-form-label">ایمیل</label>
+                                            <div class="col-md-7 col-sm-12">
                                                 <input name="email" class="form-control m-input" type="text"
-                                                       value="{{ request.user.email }}">
+                                                       value="{{ user.email }}">
                                             </div>
                                         </div>
                                         <div class="form-group m-form__group row">
-                                            <label for="example-text-input" class="col-3 col-form-label">شماره
+                                            <label for="example-text-input" class="col-md-3 col-sm-12 col-form-label">شماره
                                                 موبایل</label>
-                                            <div class="col-7">
+                                            <div class="col-md-7 col-sm-12">
                                                 <input name="phone_number" class="form-control m-input" type="text"
-                                                       value="{{ request.user.phone_number }}">
+                                                       value="{{ user.phone_number }}">
                                             </div>
                                         </div>
                                     </div>
@@ -125,10 +119,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <label for="example-text-input" class="col-2 col-form-label">کد</label>
                                                 <div class="col-6">
-                                                    <img src="{{ qr_code }}"
-                                                         alt="{{ request.user.first_name }} {{ request.user.last_name }}"/>
+                                                    <div id="qrcode"></div>
+                                                    <input id="qrcode_input" value="{{ qr_code }}" hidden/>
                                                 </div>
                                             </div>
                                         {% endif %}
@@ -145,7 +138,7 @@
                                         <div class="form-group m-form__group row">
                                             <label for="example-text-input" class="col-2 col-form-label">آدرس</label>
                                             <div class="col-7">
-                                                <textarea name="address" class="form-control m-input" style="width: 100%">{{ request.user.contact.address1 }}
+                                                <textarea name="address" class="form-control m-input" style="width: 100%">{{ user.contact.address1 }}
                                                 </textarea>
 
                                             </div>
@@ -153,13 +146,13 @@
                                         <div class="form-group m-form__group row">
                                             <label for="example-text-input" class="col-2 col-form-label">شهر</label>
                                             <div class="col-7">
-                                                <input name="city" class="form-control m-input" type="text" value="{{ request.user.contact.city }}">
+                                                <input name="city" class="form-control m-input" type="text" value="{{ user.contact.city }}">
                                             </div>
                                         </div>
                                         <div class="form-group m-form__group row">
                                             <label for="example-text-input" class="col-2 col-form-label">استان</label>
                                             <div class="col-7">
-                                                <input name="state" class="form-control m-input" type="text" value="{{ request.user.contact.state }}">
+                                                <input name="state" class="form-control m-input" type="text" value="{{ user.contact.state }}">
                                             </div>
                                         </div>
                                         <div class="form-group m-form__group row">
@@ -167,7 +160,7 @@
                                                    class="col-2 col-form-label">کد پستی</label>
                                             <div class="col-7">
                                                 <input name="postal_code" class="form-control m-input" type="text"
-                                                       value="{{ request.user.contact.postal_code }}">
+                                                       value="{{ user.contact.postal_code }}">
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +176,7 @@
                                                        class="col-2 col-form-label">شماره کارت</label>
                                                 <div class="col-7">
                                                     <input name="card_number" class="form-control m-input" type="text"
-                                                           value="{{ request.user.bankinfo.card_number }}">
+                                                           value="{{ user.bankinfo.card_number }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -192,7 +185,7 @@
                                                 <div class="col-7">
                                                     <input name="account_number" class="form-control m-input"
                                                            type="text"
-                                                           value="{{ request.user.bankinfo.account_number }}">
+                                                           value="{{ user.bankinfo.account_number }}">
                                                 </div>
                                             </div>
                                             <div class="form-group m-form__group row">
@@ -200,7 +193,7 @@
                                                     شبا</label>
                                                 <div class="col-7">
                                                     <input name="shaba_number" class="form-control m-input" type="text"
-                                                           value="{{ request.user.bankinfo.shaba_number }}">
+                                                           value="{{ user.bankinfo.shaba_number }}">
                                                 </div>
                                             </div>
                                         {% endif %}
@@ -215,7 +208,7 @@
                                         <div class="col-7">
                                             {% csrf_token %}
                                             <input name="next" type="text" value="/view-profile/" hidden/>
-                                            <input name="username" type="text" value="{{ request.user.username }}"
+                                            <input name="username" type="text" value="{{ user.username }}"
                                                    hidden/>
                                             <input name="password" type="password" hidden/>
                                             <button type="button" class="btn btn-success" data-toggle="modal"
@@ -265,7 +258,30 @@
     </div>
 {% endblock %}
 {% block footer %}
+    {% load static %}
+    <script type="text/javascript" src="{% static 'ticket/js/qrcode.min.js'%}"></script>
     <script type="text/javascript">
+        $(document).ready(function makeCode() {
+            try {
+                let text = $("#qrcode_input").val();
+                if (text !== undefined){
+                    let qrcode = new QRCode(document.getElementById("qrcode"), {
+                        width: '200',
+                        height: '200',
+                        correctLevel : QRCode.CorrectLevel.H
+                    });
+                    qrcode.makeCode($("#qrcode_input").val());
+
+                }
+            }catch (e) {
+
+            }
+            {% if request.user.username != user.username %}
+                $("input").prop('disabled', true);
+                $("textarea").prop('disabled', true);
+                console.log($("#qrcode_input").val());
+            {% endif %}
+		});
         function checkPass(e) {
             let p = $("#modal_form").find('input[name="p"]').val()
             $('body').find('input[name="password"]').val(p)
