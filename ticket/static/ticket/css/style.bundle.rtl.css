@@ -33441,52 +33441,52 @@ select.m-select2 {
       filter: alpha(opacity=30) ; }
 
 .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__head .m-login__title {
-  color: #5e5288; }
+  color: #cc3884; }
 
 .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__head .m-login__desc {
-  color: #5e5288; }
+  color: #cc3884; }
 
 .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form {
-  color: #5e5288; }
+  color: #cc3884; }
   .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .form-control {
-    color: #7668a4;
-    background: #24143f; }
+    color: #d6609d;
+    background: #7b194c; }
     .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .form-control::-moz-placeholder {
-      color: #695b98;
+      color: #d14c90;
       opacity: 1; }
     .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .form-control:-ms-input-placeholder {
-      color: #695b98; }
+      color: #d14c90; }
     .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .form-control::-webkit-input-placeholder {
-      color: #695b98; }
+      color: #d14c90; }
     .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .form-control:focus {
-      color: #9388b8; }
+      color: #e189b6; }
       .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .form-control:focus::-moz-placeholder {
-        color: #7668a4;
+        color: #d6609d;
         opacity: 1; }
       .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .form-control:focus:-ms-input-placeholder {
-        color: #7668a4; }
+        color: #d6609d; }
       .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .form-control:focus::-webkit-input-placeholder {
-        color: #7668a4; }
+        color: #d6609d; }
   .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .m-login__form-sub .m-checkbox {
-    color: #5e5288; }
+    color: #cc3884; }
   .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .m-login__form-sub .m-link {
-    color: #5e5288; }
+    color: #cc3884; }
     .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .m-login__form-sub .m-link:hover {
-      color: #9388b8; }
+      color: #e189b6; }
       .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__form .m-login__form-sub .m-link:hover:after {
-        border-bottom: 1px solid #9388b8;
+        border-bottom: 1px solid #e189b6;
         opacity: 0.3 ;
         filter: alpha(opacity=30) ; }
 
 .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__account .m-login__account-msg {
-  color: #5e5288; }
+  color: #cc3884; }
 
 .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__account .m-login__account-link {
-  color: #8478ae; }
+  color: #db75a9; }
   .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__account .m-login__account-link:hover {
-    color: #a198c1; }
+    color: #e69dc3; }
     .m-login.m-login--2.m-login-2--skin-3 .m-login__container .m-login__account .m-login__account-link:hover:after {
-      border-bottom: 1px solid #a198c1;
+      border-bottom: 1px solid #e69dc3;
       opacity: 0.3 ;
       filter: alpha(opacity=30) ; }
 
