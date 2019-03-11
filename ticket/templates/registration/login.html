@@ -32,7 +32,7 @@
 
     <!--end::Global Theme Styles -->
     {% load static %}
-    <link rel="shortcut icon" href="{% static 'ticket/images/logo/favicon.png' %}" />
+    <link rel="shortcut icon" href="{% static 'ticket/images/logo/favicon.png' %}"/>
 </head>
 
 <!-- end::Head -->
@@ -41,8 +41,10 @@
 <body class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
 
 <!--begin:: Pre Loader-->
-<div id="preload" style="z-index: 1000; width: 100%; min-height: 800px; position: absolute; background-color: #f0f0f0; opacity: 0.6; text-align: center"  >
-    <div class="m-spinner m-spinner--primary m-spinner--lg" style="align-content: center ;width: 6rem;height: 6rem; margin-top: 20%"></div>
+<div id="preload"
+     style="z-index: 1000; width: 100%; min-height: 800px; position: absolute; background-color: #f0f0f0; opacity: 0.6; text-align: center">
+    <div class="m-spinner m-spinner--primary m-spinner--lg"
+         style="align-content: center ;width: 6rem;height: 6rem; margin-top: 20%"></div>
 </div>
 <!--end:: Pre Loader-->
 
@@ -64,7 +66,8 @@
                     <form class="m-login__form m-form" method="POST" action="/login/">
                         {% csrf_token %}
                         <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="text" placeholder="شماره همراه خود را به همراه کد آرایشگاه وارد کنید"
+                            <input class="form-control m-input" type="text"
+                                   placeholder="شماره همراه خود را به همراه کد آرایشگاه وارد کنید"
                                    name="username" autocomplete="off">
                         </div>
                         <div class="form-group m-form__group">
@@ -139,6 +142,10 @@
 
     function call_preloader() {
         $("#preload").prop('hidden', !$("#preload").prop('hidden'));
+    }
+
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        console.log("This is running as standalone.");
     }
 </script>
 

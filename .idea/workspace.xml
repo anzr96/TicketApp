@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9432784e-dd66-43d8-a861-ab7a0e5eca0e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ticket/templates/a2hs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket/static/ticket/css/style.bundle.rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/static/ticket/css/style.bundle.rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket/static/ticket/js/bootstrap-notify.js" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/static/ticket/js/bootstrap-notify.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket/templates/partials/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/partials/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_project/settings_production.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_project/settings_production.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket/templates/ticket/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/ticket/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,147 +19,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticket/views.py">
+        <entry file="file://$PROJECT_DIR$/ticket/templates/partials/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="530" column="38" selection-start-line="530" selection-start-column="38" selection-end-line="530" selection-end-column="38" />
-              <folding>
-                <element signature="e#703#760#0" />
-                <element signature="e#815#872#0" />
-                <element signature="e#909#3209#0" />
-                <element signature="e#999#2889#0" />
-                <element signature="e#1016#1093#0" />
-                <element signature="e#1343#2612#0" />
-                <element signature="e#1386#1566#0" />
-                <element signature="e#1628#1851#0" />
-                <element signature="e#1913#2248#0" />
-                <element signature="e#2303#2445#0" />
-                <element signature="e#2480#2612#0" />
-                <element signature="e#2639#2815#0" />
-                <element signature="e#2946#3209#0" />
-                <element signature="e#3249#7265#0" />
-                <element signature="e#3368#4458#0" />
-                <element signature="e#3655#4048#0" />
-                <element signature="e#4076#4370#0" />
-                <element signature="e#4514#7265#0" />
-                <element signature="e#4591#7265#0" />
-                <element signature="e#5845#6015#0" />
-                <element signature="e#6069#6617#0" />
-                <element signature="e#6674#6855#0" />
-                <element signature="e#6908#7080#0" />
-                <element signature="e#7115#7199#0" />
-                <element signature="e#7306#8527#0" />
-                <element signature="e#7427#7469#0" />
-                <element signature="e#7525#8527#0" />
-                <element signature="e#7602#8527#0" />
-                <element signature="e#8018#8114#0" />
-                <element signature="e#8569#9511#0" />
-                <element signature="e#8693#8735#0" />
-                <element signature="e#8791#9511#0" />
-                <element signature="e#8868#9511#0" />
-                <element signature="e#9552#13361#0" />
-                <element signature="e#9680#10495#0" />
-                <element signature="e#10240#10402#0" />
-                <element signature="e#10551#13361#0" />
-                <element signature="e#11380#11572#0" />
-                <element signature="e#11984#13029#0" />
-                <element signature="e#12189#12268#0" />
-                <element signature="e#12364#12441#0" />
-                <element signature="e#12938#13010#0" />
-                <element signature="e#13397#13740#0" />
-                <element signature="e#13447#13740#0" />
-                <element signature="e#13594#13649#0" />
-                <element signature="e#13773#14566#0" />
-                <element signature="e#13823#14566#0" />
-                <element signature="e#13897#14566#0" />
-                <element signature="e#14611#17222#0" />
-                <element signature="e#14743#16296#0" />
-                <element signature="e#15329#16295#0" />
-                <element signature="e#16352#17222#0" />
-                <element signature="e#16429#17192#0" />
-                <element signature="e#16733#16856#0" />
-                <element signature="e#16988#17110#0" />
-                <element signature="e#17262#18167#0" />
-                <element signature="e#17350#18167#0" />
-                <element signature="e#17455#18120#0" />
-                <element signature="e#18210#20646#0" />
-                <element signature="e#18305#20646#0" />
-                <element signature="e#18686#19677#0" />
-                <element signature="e#18731#19129#0" />
-                <element signature="e#19184#19464#0" />
-                <element signature="e#19499#19677#0" />
-                <element signature="e#19704#20494#0" />
-                <element signature="e#19749#20105#0" />
-                <element signature="e#20160#20371#0" />
-                <element signature="e#20547#20645#0" />
-                <element signature="e#20690#21097#0" />
-                <element signature="e#20800#21100#0" />
-                <element signature="e#20863#20905#0" />
-                <element signature="e#20917#21022#0" />
-                <element signature="e#20799#20905#0" />
-                <element signature="e#21239#21348#0" />
-                <element signature="e#21143#23047#0" />
-                <element signature="e#21223#23047#0" />
-                <element signature="e#21300#23047#0" />
-                <element signature="e#22160#22945#0" />
-                <element signature="e#22473#22636#0" />
-                <element signature="e#22760#22945#0" />
-                <element signature="e#23093#23988#0" />
-                <element signature="e#23195#23449#0" />
-                <element signature="e#23505#23988#0" />
-                <element signature="e#23639#23938#0" />
-                <element signature="e#24033#25319#0" />
-                <element signature="e#24130#25319#0" />
-                <element signature="e#24345#25248#0" />
-                <element signature="e#25076#25247#0" />
-                <element signature="e#25362#26541#0" />
-                <element signature="e#25457#26541#0" />
-                <element signature="e#25667#26470#0" />
-                <element signature="e#26289#26469#0" />
-                <element signature="e#26577#26850#0" />
-                <element signature="e#26875#26961#0" />
-                <element signature="e#26888#26917#0" />
-                <element signature="e#27004#27138#0" />
-              </folding>
+            <state relative-caret-position="374">
+              <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticket/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/profile.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="281" column="54" selection-start-line="281" selection-start-column="54" selection-end-line="281" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticket/static/ticket/images/login/bg-2.jpg">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ticket/templates/partials/layout.html">
+        <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="383" column="113" selection-start-line="383" selection-start-column="113" selection-end-line="383" selection-end-column="113" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -163,15 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket/templates/registration/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-689">
-              <caret line="86" column="114" selection-start-line="86" selection-start-column="114" selection-end-line="86" selection-end-column="114" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#5172#5178#0#HTML" expanded="true" />
-                <element signature="e#5178#5184#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="2482">
+              <caret line="146" column="4" selection-start-line="146" selection-start-column="4" selection-end-line="148" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -179,7 +48,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket/static/ticket/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="1564">
               <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
             </state>
           </provider>
@@ -193,8 +62,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web_project/settings_production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="151" column="23" lean-forward="true" selection-start-line="151" selection-start-column="23" selection-end-line="151" selection-end-column="23" />
+            <state relative-caret-position="2737">
+              <caret line="161" column="59" selection-start-line="161" selection-start-column="59" selection-end-line="161" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ticket/static/ticket/js/bootstrap-notify.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/env/lib/python3.6/site-packages/pwa/app_settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/env/lib/python3.6/site-packages/pwa/templates/manifest.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -206,11 +102,21 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>next</find>
       <find>m_login_signin_submit</find>
       <find>qrcode</find>
+      <find>#2c2e3e</find>
+      <find>#7b194c</find>
+      <find>7b194c</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -220,7 +126,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ticket/templates/ticket/addUser.html" />
-        <option value="$PROJECT_DIR$/ticket/templates/ticket/index.html" />
         <option value="$PROJECT_DIR$/ticket/templates/ticket/addSubFactor.html" />
         <option value="$PROJECT_DIR$/ticket/templates/ticket/viewFactor.html" />
         <option value="$PROJECT_DIR$/ticket/templates/ticket/addServiceStylist.html" />
@@ -232,12 +137,15 @@
         <option value="$PROJECT_DIR$/env/lib64/python3.6/site-packages/pwa/app_settings.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/ticket/views.py" />
-        <option value="$PROJECT_DIR$/ticket/urls.py" />
         <option value="$PROJECT_DIR$/ticket/templates/ticket/profile.html" />
-        <option value="$PROJECT_DIR$/ticket/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/ticket/static/ticket/js/login.js" />
-        <option value="$PROJECT_DIR$/ticket/templates/partials/layout.html" />
         <option value="$PROJECT_DIR$/web_project/settings_production.py" />
+        <option value="$PROJECT_DIR$/ticket/urls.py" />
+        <option value="$PROJECT_DIR$/ticket/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/ticket/templates/a2hs.html" />
+        <option value="$PROJECT_DIR$/ticket/static/ticket/js/bootstrap-notify.js" />
+        <option value="$PROJECT_DIR$/ticket/templates/partials/layout.html" />
+        <option value="$PROJECT_DIR$/ticket/templates/ticket/index.html" />
       </list>
     </option>
   </component>
@@ -262,33 +170,12 @@
             <path>
               <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
-              <item name="static_collected" type="462c0819:PsiDirectoryNode" />
+              <item name="env" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
               <item name="ticket" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
-              <item name="ticket" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
-              <item name="ticket" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="ticket" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
-              <item name="ticket" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="ticket" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
@@ -302,13 +189,6 @@
               <item name="ticket" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="partials" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
-              <item name="ticket" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="registration" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
@@ -335,6 +215,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -343,8 +224,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/ticket/static/ticket/images/logo" />
+      <recent name="$PROJECT_DIR$/ticket/static/ticket/css" />
       <recent name="$PROJECT_DIR$/ticket/static/ticket/js" />
+      <recent name="$PROJECT_DIR$/ticket/static/ticket/images/logo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -398,7 +280,9 @@
       <workItem from="1551823201209" duration="3397000" />
       <workItem from="1551844701738" duration="1199000" />
       <workItem from="1551856745137" duration="1387000" />
-      <workItem from="1551871570309" duration="18117000" />
+      <workItem from="1551871570309" duration="21333000" />
+      <workItem from="1552214388602" duration="7755000" />
+      <workItem from="1552304669551" duration="311000" />
     </task>
     <task id="LOCAL-00001" summary="bug fixes">
       <created>1551823312050</created>
@@ -568,17 +452,31 @@
       <option name="project" value="LOCAL" />
       <updated>1552057142052</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="preloader">
+      <created>1552057575103</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1552057575103</updated>
+    </task>
+    <task id="LOCAL-00026" summary="preloader">
+      <created>1552057633031</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1552057633031</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24100000" />
+    <option name="totallyTimeSpent" value="35382000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1621212" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16666667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -629,6 +527,20 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bug fixes" />
@@ -646,13 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3808">
           <caret line="224" column="8" selection-start-line="224" selection-start-column="8" selection-end-line="224" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3451">
-          <caret line="203" column="7" selection-start-line="203" selection-start-column="7" selection-end-line="203" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -698,9 +603,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pwa/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pwa/apps.py" />
     <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-1870824647/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -708,75 +611,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pwa/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pwa/templates/offline.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pwa/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pwa/templates/pwa.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="38" column="36" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pwa/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pwa/templatetags/pwa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pwa/app_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="66" selection-start-line="16" selection-start-column="66" selection-end-line="16" selection-end-column="66" />
-          <folding>
-            <element signature="e#41#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pwa/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pwa/static/css/django-pwa-app.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pwa/templates/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pwa/models.py" />
+    <entry file="file://$PROJECT_DIR$/pwa/templates/offline.html" />
+    <entry file="file://$PROJECT_DIR$/pwa/urls.py" />
+    <entry file="file://$PROJECT_DIR$/pwa/templates/pwa.html" />
+    <entry file="file://$PROJECT_DIR$/pwa/views.py" />
+    <entry file="file://$PROJECT_DIR$/pwa/templatetags/pwa.py" />
+    <entry file="file://$PROJECT_DIR$/pwa/app_settings.py" />
+    <entry file="file://$PROJECT_DIR$/pwa/tests.py" />
+    <entry file="file://$PROJECT_DIR$/pwa/static/css/django-pwa-app.css" />
+    <entry file="file://$PROJECT_DIR$/pwa/templates/manifest.json" />
     <entry file="file://$PROJECT_DIR$/env/lib64/python3.6/site-packages/pwa/templates/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -791,27 +635,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo.png" />
     <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo_tag.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo_tag.015ccc183b4b.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo_tag.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo_sbs.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ticket/static/ticket/images/logo/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo_sbs.015ccc183b4b.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo_tag.015ccc183b4b.PNG" />
+    <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo_tag.PNG" />
+    <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo_sbs.PNG" />
+    <entry file="file://$PROJECT_DIR$/ticket/static/ticket/images/logo/logo.png" />
+    <entry file="file://$PROJECT_DIR$/static_collected/ticket/images/logo/logo_sbs.015ccc183b4b.PNG" />
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -819,32 +651,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/env/lib/python3.6/site-packages/pwa/app_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="55" lean-forward="true" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/env/lib/python3.6/site-packages/pwa/templates/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ticket/static/ticket/js/qrcode.min.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ticket/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/env/lib/python3.6/site-packages/django/shortcuts.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -968,16 +776,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticket/static/ticket/images/logo/logo_tag.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/ticket/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" column="136" selection-start-line="19" selection-start-column="136" selection-end-line="19" selection-end-column="136" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticket/static/ticket/images/logo/logo_sbs.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/ticket/templates/a2hs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-689">
-          <caret line="86" column="114" selection-start-line="86" selection-start-column="114" selection-end-line="86" selection-end-column="114" />
+        <state relative-caret-position="2482">
+          <caret line="146" column="4" selection-start-line="146" selection-start-column="4" selection-end-line="148" selection-end-column="5" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -990,26 +809,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket/static/ticket/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="1564">
           <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ticket/static/ticket/images/logo/logo_sbs.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/web_project/settings_production.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="151" column="23" lean-forward="true" selection-start-line="151" selection-start-column="23" selection-end-line="151" selection-end-column="23" />
+        <state relative-caret-position="2737">
+          <caret line="161" column="59" selection-start-line="161" selection-start-column="59" selection-end-line="161" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket/static/ticket/js/bootstrap-notify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/env/lib/python3.6/site-packages/pwa/app_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/env/lib/python3.6/site-packages/pwa/templates/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket/static/ticket/images/logo/logo_tag.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket/static/ticket/css/style.bundle.rtl.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="36442" column="41" selection-start-line="36442" selection-start-column="41" selection-end-line="36442" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket/templates/partials/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="383" column="113" selection-start-line="383" selection-start-column="113" selection-end-line="383" selection-end-column="113" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="374">
+          <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
         </state>
       </provider>
     </entry>
