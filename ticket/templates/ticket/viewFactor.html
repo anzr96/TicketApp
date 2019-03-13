@@ -45,7 +45,7 @@
                         <div class="m-form__actions m-form__actions--solid">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <button type="reset" class="btn btn-primary">جستجو</button>
+                                    <button type="reset" class="btn btn-brand">جستجو</button>
                                     <button type="reset" class="btn btn-secondary">پاک کردن</button>
                                 </div>
                             </div>
@@ -145,8 +145,8 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="exampleModalLabel">اسکن QR</h5>
+                    <button id="modal_close" type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
@@ -221,6 +221,11 @@
         $("#scan").on('click', function (event) {
             scanner.start();
             video.play();
-        })
+        });
+
+        $("#modal_close").on('click', function (event){
+            scanner.stop();
+            video.pause();
+        });
     </script>
 {% endblock %}

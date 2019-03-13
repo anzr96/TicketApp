@@ -495,7 +495,7 @@ class ViewFactorView(TemplateView):
         qr_code = request.GET.get('qr')
         salon = Salon.objects.get(user=request.user)
 
-        if request.user.groups.filter(name="stylist").exist() and not request.user.is_superuser:
+        if request.user.groups.filter(name="stylist").exists() and not request.user.is_superuser:
             if phone_number is not None:
                 user = User.objects.filter(phone_number=phone_number).first()
                 if not user.groups.filter(name="customer").exists():
