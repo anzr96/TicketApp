@@ -15,6 +15,12 @@ from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from django.core import serializers
 import time
+from django.contrib import messages
+import logging
+
+logger = logging.getLogger(__name__)
+
+FORM_INVALID = 'اطلاعات وارد شده صحیح نمی باشند'
 
 
 # Create your views here.
@@ -30,17 +36,15 @@ class HomeView(TemplateView):
     template_name = "ticket/index.html"
 
     def get(self, request, *args, **kwargs):
+        messages.add_message(request, 'info',
+                             request.user.first_name + ' ' + request.user.last_name + ' عزیز خوش آمدید')
         try:
             (request.user.customer is None)
             return redirect('/view-profile/')
         except:
             pass
         salon = Salon.objects.get(user=request.user)
-
-        try:
-            useful_link = request.GET['useful_link']
-        except:
-            useful_link = None
+        useful_link = request.GET.get('useful_link')
 
         if useful_link is not None:
             if useful_link == 'today':
@@ -67,7 +71,6 @@ class HomeView(TemplateView):
         return render(request, self.template_name, {'factors': factors})
 
     def post(self, request, *args, **kwargs):
-
         salon = Salon.objects.get(user=request.user)
 
         factors = Factor.objects.filter(customer_factors__user__salon=salon).all()[:100]
@@ -83,7 +86,6 @@ class AddUserView(TemplateView):
     def get(self, request, *args, **kwargs):
         user = request.user
         roles = []
-        salons = []
 
         if user.is_superuser:
             salons = Salon.objects.all()
@@ -128,10 +130,12 @@ class AddUserView(TemplateView):
             salon_code = form.cleaned_data['salon']
             salon = Salon.objects.filter(code=salon_code).first()
             if salon is None:
-                return redirect('/')
-            username = phone_number + salon.code
+                messages.add_message(request, messages.ERROR, 'سالن انتخاب نشده است')
+                return redirect(request.path)
 
+            username = phone_number + salon.code
             if role == "manager" and not request.user.has_perm('ticket.add_manager'):
+                messages.add_message(request, messages.WARNING, 'شما این نقش را نمی توانید انتخاب کنید')
                 raise form.ValidationError("شما این نقش را نمی توانید انتخاب کنید")
 
             user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name,
@@ -146,6 +150,7 @@ class AddUserView(TemplateView):
                 user_admin = User.objects.get(username=request.user.username)
                 manager = Manager.objects.create(user=user, admin=user_admin)
                 manager.save()
+                messages.add_message(request, messages.SUCCESS, 'مدیر جدید با موفقیت ثبت شد')
             elif role == "customer":
                 user_admin = User.objects.get(username=request.user.username)
                 customer = Customer.objects.create(user=user, manager=user_admin)
@@ -156,21 +161,25 @@ class AddUserView(TemplateView):
                 hash_qr = hashlib.sha224(pre_qr.encode()).hexdigest()
                 qr = QRCode.objects.create(code=hash_qr, customer=customer, admin=user_admin)
                 qr.save()
-
+                messages.add_message(request, messages.SUCCESS, 'مشتری جدید با موفقیت ثبت شد')
             elif role == "accountant":
                 user_admin = User.objects.get(username=request.user.username)
                 accountant = Accountant.objects.create(user=user, manager=user_admin)
                 accountant.save()
+                messages.add_message(request, messages.SUCCESS, 'حسابدار جدید با موفقیت ثبت شد')
             elif role == "stylist":
                 user_admin = User.objects.get(username=request.user.username)
                 stylist = Stylist.objects.create(user=user, manager=user_admin)
                 stylist.save()
+                messages.add_message(request, messages.SUCCESS, 'آرایشگر جدید با موفقیت ثبت شد')
             else:
                 user.remove()
+                messages.add_message(request, messages.ERROR, 'نقش انتخاب شده صحیح نیست')
                 raise form.ValidationError('نقش انتخاب شده صحیح نیست')
 
-            response = redirect("/")
-            return response
+            return redirect(request.path)
+        messages.add_message(request, 'warning', FORM_INVALID)
+        return redirect(request.path)
 
 
 class AddSalonView(TemplateView):
@@ -203,11 +212,13 @@ class AddSalonView(TemplateView):
                                              salons=salon)
             contact.save()
 
-            response = redirect(form.cleaned_data['next'])
-            return response
+            messages.add_message(request, 'success', 'سالن ' + name + ' با موفقیت ثبت شد')
+            return redirect(form.cleaned_data['next'])
+        messages.add_message(request, 'warning', FORM_INVALID)
+        return redirect(request.path)
 
 
-class AddSeviceView(TemplateView):
+class AddServiceView(TemplateView):
     template_name = "ticket/addService.html"
     form_class = ServiceForm
 
@@ -221,18 +232,27 @@ class AddSeviceView(TemplateView):
             name = form.cleaned_data['name']
             price = form.cleaned_data['price']
             description = form.cleaned_data['description']
+            salon = form.cleaned_data['salon']
 
-            if request.user.is_superuser:
-                salon = Salon.objects.all()[0]
+            if salon is None and request.user.is_superuser:
+                messages.add_message(request, 'error', 'لطفا سالن را انتخاب کنید')
+                return redirect(request.path)
             else:
-                salon = Salon.objects.filter(users__username=request.user.username)[0]
+                salon = Salon.objects.filter(users__username=request.user.username).first()
 
             service = Service.objects.create(code=code, name=name, offeredـprice=price, description=description,
                                              salon=salon)
-            service.save()
+            try:
+                service.save()
+                messages.add_message(request, 'success', 'سرویس جدید با موفقیت ثبت شد')
+            except:
+                logger.exception('سرویس اضافه نشد')
+                messages.add_message(request, 'error', 'خطا رخ داد')
+                messages.add_message(request, 'error', 'سرویس جدید اضافه نشد. لطفا دوباره تلاش کنید')
 
-            response = redirect('/')
-            return response
+            return redirect(request.path)
+        messages.add_message(request, 'warning', FORM_INVALID)
+        return redirect(request.path)
 
 
 class AddSubFactor(TemplateView):
@@ -241,8 +261,6 @@ class AddSubFactor(TemplateView):
 
     def get(self, request, *args, **kwargs):
         user = request.user
-        users = []
-        services = []
 
         try:
             stylist_exist = (user.stylist is not None)
@@ -263,7 +281,6 @@ class AddSubFactor(TemplateView):
 
     def post(self, request, *args, **kwargs):
         stylist = User.objects.filter(username=request.user.username).first()
-
         json_parsed = json.loads(request.body)
 
         customer = User.objects.filter(username=json_parsed['username']).first()
@@ -292,23 +309,25 @@ class AddSubFactor(TemplateView):
         sub_factor = SubFactor.objects.create(index=index, final_amount=0, discount_percent=discount_percent,
                                               discount_amount=discount_amount, side_fees=side_fees, total=0,
                                               factors=factor)
-
         i = 0
         total = 0
         for s in json_parsed['service']:
-            service = Service.objects.filter(code=s).first()
+            service = Service.objects.filter(code=s, stylistservice__stylist__user=stylist).first()
 
             if service is None:
+                messages.add_message(request, 'warning', 'سرویس ' + s + ' در سیستم موجود نیست')
                 continue
 
             number = json_parsed['number'][i]
             if not is_num(number):
-                print('number is not num : ' + number)
+                logger.info('number is not num : ' + number)
+                messages.add_message(request, 'error', 'تعداد به درستی وارد نشده')
                 return HttpResponse('#')
 
             price = json_parsed['price'][i]
             if not is_num(price):
-                print('price is not num : ' + price)
+                logger.info('price is not num : ' + price)
+                messages.add_message(request, 'error', 'قیمت به درستی وارد نشده')
                 return HttpResponse('#')
 
             discount = json_parsed['discount'][i]
@@ -318,10 +337,12 @@ class AddSubFactor(TemplateView):
             total += int(number) * int(price) * (100 - int(discount)) / 100
             sub_service = SubService.objects.create(number=number, price=price, discount=discount, service=service,
                                                     subFactor=sub_factor)
+
             description = json_parsed['description'][i]
             if description is not None:
                 sub_service.description = description
-                sub_service.save()
+
+            sub_service.save()
             i += 1
 
         sub_factor.total = total
@@ -332,6 +353,7 @@ class AddSubFactor(TemplateView):
         factor.final_amount += sub_factor.final_amount
         factor.save()
 
+        messages.add_message(request, 'success', 'فاکتور جدید با موفقیت ثبت شد')
         return HttpResponse(next_url)
 
 
@@ -368,6 +390,8 @@ class GetUserData(View):
             response = JsonResponse(
                 {'first_name': user.first_name, 'last_name': user.last_name, 'username': user.username})
             return response
+        messages.add_message(request, 'warning', FORM_INVALID)
+        return redirect(request.path)
 
 
 class UpdateFactorView(TemplateView):
@@ -375,13 +399,16 @@ class UpdateFactorView(TemplateView):
     form_class = UpdateFactorForm
 
     def get(self, request, *args, **kwargs):
-        code = request.GET['code']
+        salon = Salon.objects.filter(user=request.user).first()
+        code = request.GET.get('code')
         if code is None:
-            return redirect('/')
+            messages.add_message(request, 'warning', 'لطفا دوباره تلاش کنید')
+            return redirect(request.path)
 
-        factor = Factor.objects.filter(code=code).first()
+        factor = Factor.objects.filter(code=code, customer_factors__user__salon=salon).first()
         if factor is None:
-            return redirect('/')
+            messages.add_message(request, 'error', 'فاکتور مورد نظر یافت نشد')
+            return redirect(request.path)
 
         customer = factor.customer_factors.user
         accountant = User.objects.filter(username=request.user.username).first()
@@ -406,9 +433,10 @@ class UpdateFactorView(TemplateView):
                                                     'payments': payments})
 
     def post(self, request, *args, **kwargs):
+        salon = Salon.objects.filter(user=request.user).first()
         form = self.form_class(request.POST)
         if form.is_valid():
-            factor = Factor.objects.get(code=form.cleaned_data['code'])
+            factor = Factor.objects.get(code=form.cleaned_data['code'], customer_factors__user__salon=salon)
             factor.payment_method = form.cleaned_data['payment_method']
             paid_amount = form.cleaned_data['paid_amount']
 
@@ -419,6 +447,7 @@ class UpdateFactorView(TemplateView):
                 factor.modified_date = timezone.now()
 
             elif paid_amount > factor.final_amount:
+                messages.add_message(request, 'error', 'مقدار پرداخت شده از مقدار فاکتور بیشتر است')
                 return HttpResponse('fail')
             else:
                 factor.paid_amount = paid_amount
@@ -426,16 +455,16 @@ class UpdateFactorView(TemplateView):
                 factor.modified_date = timezone.now()
 
             factor.save()
+            messages.add_message(request, 'success', 'فاکتور با موفقیت بروزرسانی شد')
             return redirect(form.cleaned_data['next'])
-
-        return redirect('/')
+        messages.add_message(request, 'warning', FORM_INVALID)
+        return redirect(request.path)
 
 
 class UpdateSubFactorView(View):
     form_class = UpdateSubFactorForm
 
     def post(self, request, *args, **kwargs):
-        print(request.POST)
         form = self.form_class(request.POST)
         if form.is_valid():
             subfactor = SubFactor.objects.get(pk=form.cleaned_data['id'])
@@ -452,32 +481,25 @@ class UpdateSubFactorView(View):
 
             return redirect(form.cleaned_data['next'])
         else:
-            return redirect('/')
+            messages.add_message(request, 'warning', FORM_INVALID)
+            return redirect(request.path)
 
 
 class ViewFactorView(TemplateView):
     template_name = 'ticket/viewFactor.html'
 
     def get(self, request, *args, **kwargs):
-        try:
-            phone_number = request.GET['phone_number']
-        except Exception:
-            phone_number = None
-
-        try:
-            qr_code = request.GET['qr']
-        except Exception:
-            qr_code = None
-
+        phone_number = request.GET.get('phone_number')
+        qr_code = request.GET.get('qr')
         salon = Salon.objects.get(user=request.user)
 
-        if request.user.groups.filter(name="stylist") and not request.user.is_superuser:
+        if request.user.groups.filter(name="stylist").exist() and not request.user.is_superuser:
             if phone_number is not None:
                 user = User.objects.filter(phone_number=phone_number).first()
                 if not user.groups.filter(name="customer").exists():
                     return redirect('/')
-                factors = Factor.objects.filter(customer_factors__user__salon=salon, customer_factors=user.customer
-                                                , sub_factors__stylist__user=request.user).exclude(status='C')
+                factors = Factor.objects.filter(customer_factors__user__salon=salon, customer_factors=user.customer,
+                                                sub_factors__stylist__user=request.user).exclude(status='C')
             elif qr_code is not None:
                 customer = Customer.objects.filter(qrcode=qr_code).first()
                 factors = Factor.objects.filter(customer_factors__user__salon=salon, customer_factors=customer
@@ -514,9 +536,10 @@ class ViewProfileView(TemplateView):
             title = 'پروفایل من'
         else:
             user = User.objects.get(username=username)
-            title = 'پروفایل ' + user.first_name + " " + user.last_name
             if user is None:
+                messages.add_message(request, 'warning', 'کاربر مورد نظر یافت نشد')
                 return redirect('/')
+            title = 'پروفایل ' + user.first_name + " " + user.last_name
 
         try:
             (request.user.customer is not None)
@@ -583,7 +606,6 @@ class AddServiceStylist(TemplateView):
 
     def post(self, request, *args, **kwargs):
         json_parsed = json.loads(request.body)
-        print(json_parsed)
 
         i = 0
         for s in json_parsed['stylist']:
