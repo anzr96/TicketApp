@@ -32,6 +32,15 @@ def random_number(size=4, chars=string.digits):
     return ''.join(random.choice(chars) for i in range(size))
 
 
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
+
 class HomeView(TemplateView):
     template_name = "ticket/index.html"
 
@@ -480,9 +489,8 @@ class UpdateSubFactorView(View):
             factor.save()
 
             return redirect(form.cleaned_data['next'])
-        else:
-            messages.add_message(request, 'warning', FORM_INVALID)
-            return redirect(request.path)
+        messages.add_message(request, 'warning', FORM_INVALID)
+        return redirect(request.path)
 
 
 class ViewFactorView(TemplateView):
@@ -575,7 +583,6 @@ class UpdateProfileView(TemplateView):
 
             user = User.objects.get(username=username)
             if user.check_password(password) and request.user.username == username:
-
                 user.first_name = first_name
                 user.last_name = last_name
                 user.email = email
@@ -590,9 +597,15 @@ class UpdateProfileView(TemplateView):
                     bank_info = BankInfo.objects.create(card_number=card_number, account_number=account_number,
                                                         shaba_number=shaba_number, user=user)
             else:
+                messages.add_message(request, 'error', 'شما دسنرسی ندارید')
+                logger.warning('کاربر ' + request.user.username + ' با IP ' + get_client_ip(request) + 'درخواست تغییر '
+                                                                                                       'پروفایل ' +
+                               username + ' را داشت')
                 return redirect('/')
-
+            messages.add_message(request, 'success', 'اطلاعات شما با موفقیت تغییر پیدا کرد')
             return redirect('/view-profile/')
+        messages.add_message(request, 'warning', FORM_INVALID)
+        return redirect(request.path)
 
 
 class AddServiceStylist(TemplateView):
@@ -612,9 +625,10 @@ class AddServiceStylist(TemplateView):
             stylist = Stylist.objects.get(user__username=s)
             service = Service.objects.get(code=json_parsed['service'][i])
             percent = json_parsed['percent'][i]
-            service_stylist = StylistService.objects.create(stylist=stylist, service=service, percent=percent)
+            StylistService.objects.create(stylist=stylist, service=service, percent=percent)
             i += 1
 
+        messages.add_message(request, 'success', 'سرویس ها با موفقیت به آرایشگران اختصاص داده شدند')
         return HttpResponse(json_parsed['next'])
 
 
