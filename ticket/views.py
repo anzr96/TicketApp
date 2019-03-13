@@ -45,7 +45,7 @@ class HomeView(TemplateView):
     template_name = "ticket/index.html"
 
     def get(self, request, *args, **kwargs):
-        messages.add_message(request, 'info',
+        messages.add_message(request, messages.INFO,
                              str(request.user.first_name) + ' ' + str(request.user.last_name) + ' عزیز خوش آمدید')
         try:
             (request.user.customer is None)
@@ -187,7 +187,7 @@ class AddUserView(TemplateView):
                 raise form.ValidationError('نقش انتخاب شده صحیح نیست')
 
             return redirect(request.path)
-        messages.add_message(request, 'warning', FORM_INVALID)
+        messages.add_message(request, messages.WARNING, FORM_INVALID)
         return redirect(request.path)
 
 
@@ -221,9 +221,9 @@ class AddSalonView(TemplateView):
                                              salons=salon)
             contact.save()
 
-            messages.add_message(request, 'success', 'سالن ' + name + ' با موفقیت ثبت شد')
+            messages.add_message(request, messages.SUCCESS, 'سالن ' + name + ' با موفقیت ثبت شد')
             return redirect(form.cleaned_data['next'])
-        messages.add_message(request, 'warning', FORM_INVALID)
+        messages.add_message(request, messages.WARNING, FORM_INVALID)
         return redirect(request.path)
 
 
@@ -241,26 +241,20 @@ class AddServiceView(TemplateView):
             name = form.cleaned_data['name']
             price = form.cleaned_data['price']
             description = form.cleaned_data['description']
-            salon = form.cleaned_data['salon']
 
-            if salon is None and request.user.is_superuser:
-                messages.add_message(request, 'error', 'لطفا سالن را انتخاب کنید')
-                return redirect(request.path)
-            else:
-                salon = Salon.objects.filter(users__username=request.user.username).first()
-
+            salon = Salon.objects.filter(user=request.user).first()
             service = Service.objects.create(code=code, name=name, offeredـprice=price, description=description,
                                              salon=salon)
             try:
                 service.save()
-                messages.add_message(request, 'success', 'سرویس جدید با موفقیت ثبت شد')
+                messages.add_message(request, messages.SUCCESS, 'سرویس جدید با موفقیت ثبت شد')
             except:
                 logger.exception('سرویس اضافه نشد')
-                messages.add_message(request, 'error', 'خطا رخ داد')
-                messages.add_message(request, 'error', 'سرویس جدید اضافه نشد. لطفا دوباره تلاش کنید')
+                messages.add_message(request, messages.ERROR, 'خطا رخ داد')
+                messages.add_message(request, messages.ERROR, 'سرویس جدید اضافه نشد. لطفا دوباره تلاش کنید')
 
             return redirect(request.path)
-        messages.add_message(request, 'warning', FORM_INVALID)
+        messages.add_message(request, messages.WARNING, FORM_INVALID)
         return redirect(request.path)
 
 
@@ -324,19 +318,19 @@ class AddSubFactor(TemplateView):
             service = Service.objects.filter(code=s, stylistservice__stylist__user=stylist).first()
 
             if service is None:
-                messages.add_message(request, 'warning', 'سرویس ' + s + ' در سیستم موجود نیست')
+                messages.add_message(request, messages.WARNING, 'سرویس ' + s + ' در سیستم موجود نیست')
                 continue
 
             number = json_parsed['number'][i]
             if not is_num(number):
                 logger.info('number is not num : ' + number)
-                messages.add_message(request, 'error', 'تعداد به درستی وارد نشده')
+                messages.add_message(request, messages.ERROR, 'تعداد به درستی وارد نشده')
                 return HttpResponse('#')
 
             price = json_parsed['price'][i]
             if not is_num(price):
                 logger.info('price is not num : ' + price)
-                messages.add_message(request, 'error', 'قیمت به درستی وارد نشده')
+                messages.add_message(request, messages.ERROR, 'قیمت به درستی وارد نشده')
                 return HttpResponse('#')
 
             discount = json_parsed['discount'][i]
@@ -362,7 +356,7 @@ class AddSubFactor(TemplateView):
         factor.final_amount += sub_factor.final_amount
         factor.save()
 
-        messages.add_message(request, 'success', 'فاکتور جدید با موفقیت ثبت شد')
+        messages.add_message(request, messages.SUCCESS, 'فاکتور جدید با موفقیت ثبت شد')
         return HttpResponse(next_url)
 
 
@@ -399,7 +393,7 @@ class GetUserData(View):
             response = JsonResponse(
                 {'first_name': user.first_name, 'last_name': user.last_name, 'username': user.username})
             return response
-        messages.add_message(request, 'warning', FORM_INVALID)
+        messages.add_message(request, messages.WARNING, FORM_INVALID)
         return redirect(request.path)
 
 
@@ -411,12 +405,12 @@ class UpdateFactorView(TemplateView):
         salon = Salon.objects.filter(user=request.user).first()
         code = request.GET.get('code')
         if code is None:
-            messages.add_message(request, 'warning', 'لطفا دوباره تلاش کنید')
+            messages.add_message(request, messages.WARNING, 'لطفا دوباره تلاش کنید')
             return redirect(request.path)
 
         factor = Factor.objects.filter(code=code, customer_factors__user__salon=salon).first()
         if factor is None:
-            messages.add_message(request, 'error', 'فاکتور مورد نظر یافت نشد')
+            messages.add_message(request, messages.ERROR, 'فاکتور مورد نظر یافت نشد')
             return redirect(request.path)
 
         customer = factor.customer_factors.user
@@ -456,7 +450,7 @@ class UpdateFactorView(TemplateView):
                 factor.modified_date = timezone.now()
 
             elif paid_amount > factor.final_amount:
-                messages.add_message(request, 'error', 'مقدار پرداخت شده از مقدار فاکتور بیشتر است')
+                messages.add_message(request, messages.ERROR, 'مقدار پرداخت شده از مقدار فاکتور بیشتر است')
                 return HttpResponse('fail')
             else:
                 factor.paid_amount = paid_amount
@@ -464,9 +458,9 @@ class UpdateFactorView(TemplateView):
                 factor.modified_date = timezone.now()
 
             factor.save()
-            messages.add_message(request, 'success', 'فاکتور با موفقیت بروزرسانی شد')
+            messages.add_message(request, messages.SUCCESS, 'فاکتور با موفقیت بروزرسانی شد')
             return redirect(form.cleaned_data['next'])
-        messages.add_message(request, 'warning', FORM_INVALID)
+        messages.add_message(request, messages.WARNING, FORM_INVALID)
         return redirect(request.path)
 
 
@@ -489,7 +483,7 @@ class UpdateSubFactorView(View):
             factor.save()
 
             return redirect(form.cleaned_data['next'])
-        messages.add_message(request, 'warning', FORM_INVALID)
+        messages.add_message(request, messages.WARNING, FORM_INVALID)
         return redirect(request.path)
 
 
@@ -545,7 +539,7 @@ class ViewProfileView(TemplateView):
         else:
             user = User.objects.get(username=username)
             if user is None:
-                messages.add_message(request, 'warning', 'کاربر مورد نظر یافت نشد')
+                messages.add_message(request, messages.WARNING, 'کاربر مورد نظر یافت نشد')
                 return redirect('/')
             title = 'پروفایل ' + user.first_name + " " + user.last_name
 
@@ -597,14 +591,14 @@ class UpdateProfileView(TemplateView):
                     bank_info = BankInfo.objects.create(card_number=card_number, account_number=account_number,
                                                         shaba_number=shaba_number, user=user)
             else:
-                messages.add_message(request, 'error', 'شما دسنرسی ندارید')
+                messages.add_message(request, messages.ERROR, 'شما دسنرسی ندارید')
                 logger.warning('کاربر ' + request.user.username + ' با IP ' + get_client_ip(request) + 'درخواست تغییر '
                                                                                                        'پروفایل ' +
                                username + ' را داشت')
                 return redirect('/')
-            messages.add_message(request, 'success', 'اطلاعات شما با موفقیت تغییر پیدا کرد')
+            messages.add_message(request, messages.SUCCESS, 'اطلاعات شما با موفقیت تغییر پیدا کرد')
             return redirect('/view-profile/')
-        messages.add_message(request, 'warning', FORM_INVALID)
+        messages.add_message(request, messages.WARNING, FORM_INVALID)
         return redirect(request.path)
 
 
@@ -628,7 +622,7 @@ class AddServiceStylist(TemplateView):
             StylistService.objects.create(stylist=stylist, service=service, percent=percent)
             i += 1
 
-        messages.add_message(request, 'success', 'سرویس ها با موفقیت به آرایشگران اختصاص داده شدند')
+        messages.add_message(request, messages.SUCCESS, 'سرویس ها با موفقیت به آرایشگران اختصاص داده شدند')
         return HttpResponse(json_parsed['next'])
 
 

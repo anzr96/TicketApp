@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9432784e-dd66-43d8-a861-ab7a0e5eca0e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_collected/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/staticfiles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_collected/ticket/css/style.bundle.rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/css/style.bundle.rtl.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_collected/ticket/css/style.bundle.rtl.css.gz" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/css/style.bundle.rtl.css.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_collected/ticket/js/bootstrap-notify.js" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/js/bootstrap-notify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_collected/ticket/js/bootstrap-notify.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/js/bootstrap-notify.js.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_collected/ticket/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_collected/ticket/js/login.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/js/login.js.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket/templates/ticket/addService.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/ticket/addService.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,9 +19,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="9299">
               <caret line="547" column="41" selection-start-line="547" selection-start-column="41" selection-end-line="547" selection-end-column="41" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -53,7 +44,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web_project/settings_production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
+            <state relative-caret-position="2278">
               <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
               <folding>
                 <element signature="e#312#321#0" expanded="true" />
@@ -71,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="48" column="114" lean-forward="true" selection-start-line="48" selection-start-column="114" selection-end-line="48" selection-end-column="114" />
+            <state relative-caret-position="226">
+              <caret line="244" column="67" lean-forward="true" selection-start-line="244" selection-start-column="67" selection-end-line="244" selection-end-column="67" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -83,11 +74,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/addService.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="26" column="66" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="142" column="30" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
+            <state relative-caret-position="68">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -114,6 +114,7 @@
       <find>print</find>
       <find>request.GET</find>
       <find>Salon.objects.filter</find>
+      <find>add_message</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -143,6 +144,7 @@
         <option value="$PROJECT_DIR$/web_project/settings_production.py" />
         <option value="$PROJECT_DIR$/ticket/urls.py" />
         <option value="$PROJECT_DIR$/ticket/views.py" />
+        <option value="$PROJECT_DIR$/ticket/templates/ticket/addService.html" />
       </list>
     </option>
   </component>
@@ -173,6 +175,19 @@
             <path>
               <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
+              <item name="ticket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
+              <item name="ticket" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TicketApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TicketApp" type="462c0819:PsiDirectoryNode" />
+              <item name="ticket" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="ticket" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -252,6 +267,7 @@
       <workItem from="1552304669551" duration="7603000" />
       <workItem from="1552478588525" duration="1021000" />
       <workItem from="1552480071031" duration="5461000" />
+      <workItem from="1552501104012" duration="1884000" />
     </task>
     <task id="LOCAL-00001" summary="bug fixes">
       <created>1551823312050</created>
@@ -474,7 +490,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49156000" />
+    <option name="totallyTimeSpent" value="51040000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -487,14 +503,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17121212" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17348485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32899022" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32899022" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -503,7 +518,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32899022" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.73615634" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.73615634" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -729,13 +744,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/logs/mylog.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/request.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+      <provider editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/ticket/templates/partials/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9299">
           <caret line="547" column="41" selection-start-line="547" selection-start-column="41" selection-end-line="547" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -753,17 +773,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/mylog.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/request.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
-      <provider editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/web_project/settings_production.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
+        <state relative-caret-position="2278">
           <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
           <folding>
             <element signature="e#312#321#0" expanded="true" />
@@ -780,18 +792,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="142" column="30" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
+        <state relative-caret-position="68">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="48" column="114" lean-forward="true" selection-start-line="48" selection-start-column="114" selection-end-line="48" selection-end-column="114" />
+        <state relative-caret-position="226">
+          <caret line="244" column="67" lean-forward="true" selection-start-line="244" selection-start-column="67" selection-end-line="244" selection-end-column="67" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/addService.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="26" column="66" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
         </state>
       </provider>
     </entry>
