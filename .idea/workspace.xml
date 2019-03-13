@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="9432784e-dd66-43d8-a861-ab7a0e5eca0e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket/templates/partials/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/partials/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket/templates/ticket/addSubFactor.html" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/templates/ticket/addSubFactor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_collected/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/staticfiles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_collected/ticket/css/style.bundle.rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/css/style.bundle.rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_collected/ticket/css/style.bundle.rtl.css.gz" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/css/style.bundle.rtl.css.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_collected/ticket/js/bootstrap-notify.js" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/js/bootstrap-notify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_collected/ticket/js/bootstrap-notify.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/js/bootstrap-notify.js.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_collected/ticket/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static_collected/ticket/js/login.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/static_collected/ticket/js/login.js.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_project/settings_production.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_project/settings_production.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ticket/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="550" column="52" lean-forward="true" selection-start-line="550" selection-start-column="52" selection-end-line="550" selection-end-column="52" />
+            <state relative-caret-position="150">
+              <caret line="48" column="114" lean-forward="true" selection-start-line="48" selection-start-column="114" selection-end-line="48" selection-end-column="114" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -248,7 +251,7 @@
       <workItem from="1552214388602" duration="7755000" />
       <workItem from="1552304669551" duration="7603000" />
       <workItem from="1552478588525" duration="1021000" />
-      <workItem from="1552480071031" duration="4147000" />
+      <workItem from="1552480071031" duration="5461000" />
     </task>
     <task id="LOCAL-00001" summary="bug fixes">
       <created>1551823312050</created>
@@ -453,31 +456,54 @@
       <option name="project" value="LOCAL" />
       <updated>1552305968082</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="add django messages">
+      <created>1552484232514</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1552484232514</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add django messages">
+      <created>1552484829800</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1552484829800</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47842000" />
+    <option name="totallyTimeSpent" value="49156000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17121212" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17121212" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32899022" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32899022" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.24267101" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.73615634" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -538,7 +564,8 @@
     <MESSAGE value="update pwa package" />
     <MESSAGE value="update logo" />
     <MESSAGE value="preloader" />
-    <option name="LAST_COMMIT_MESSAGE" value="preloader" />
+    <MESSAGE value="add django messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="add django messages" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ticket/templates/ticket/viewFactor.html">
@@ -760,8 +787,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="550" column="52" lean-forward="true" selection-start-line="550" selection-start-column="52" selection-end-line="550" selection-end-column="52" />
+        <state relative-caret-position="150">
+          <caret line="48" column="114" lean-forward="true" selection-start-line="48" selection-start-column="114" selection-end-line="48" selection-end-column="114" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>

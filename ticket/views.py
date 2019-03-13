@@ -46,7 +46,7 @@ class HomeView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         messages.add_message(request, 'info',
-                             request.user.first_name + ' ' + request.user.last_name + ' عزیز خوش آمدید')
+                             str(request.user.first_name) + ' ' + str(request.user.last_name) + ' عزیز خوش آمدید')
         try:
             (request.user.customer is None)
             return redirect('/view-profile/')
